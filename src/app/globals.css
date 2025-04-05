@@ -11,6 +11,7 @@
   --dark-secondary: #393C37;
   --dark-text: #D5DACF;
   --font-mono: var(--font-geist-mono);
+  --font-gothic: "DotGothic16", "DotGothic16 Fallback"; 
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +20,17 @@
     --secondary: #393C37;
     --text: #D5DACF;
   }
+}
+
+@theme {
+  --color-light-primary: var(--light-primary);
+  --color-light-secondary: var(--light-secondary);
+  --color-light-text: var(--light-text);
+  --color-dark-primary: var(--dark-primary);
+  --color-dark-secondary: var(--dark-secondary);
+  --color-dark-text: var(--dark-text);
+  --font-mono: var(--font-geist-mono);
+  --font-gothic: var(--font-gothic)
 }
 
 body {

@@ -61,7 +61,7 @@ export const DUMMY_DATA = {
       "portrait": {
         "fileName": "vince_filmen-6.jpg",
         "id": "cm94ar70fryw307ur3yr199py",
-        "url": "https://media.graphassets.com/mTGFNdCZStOCkNG6I4bj"
+        "url": "https://media.graphassets.com/mwyqI5LAT3CVgAvCUTJY"
       }
     }
   }

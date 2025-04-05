@@ -50,12 +50,16 @@ export default function Home() {
       <main className="flex flex-col h-max items-center">
         {/* MAIN */}
           <div className="flex-1/2 flex flex-row">
-            <div className="flex flex-col">
-
+            <div className="flex flex-col flex-2/3 text-center">
+              <h3 className="text-sm">{portfolio.preHeading}</h3>
+              <div className="border-2 border-(--light-primary) text-xl px-4 py-1 ">
+                <h2>{portfolio.heading}</h2>
+              </div>
+              <h4 className="text-xs">{portfolio.postHeading}</h4>
             </div>
-            <div className="flex flex-col items-end gap-15">
-              <Button type="dark" className="px-5 py-1" onClick={() => {}}>{portfolio.email}</Button>
-              <Image src={portfolio.portrait.url} width={275} height={340} alt="portait image"/>
+            <div className="flex flex-col flex-1/3 items-end gap-15">
+              <Button type="light" className="px-5 py-1" onClick={() => {}}>{portfolio.email}</Button>
+              <Image className="max-w-[275px]" src={portfolio.portrait.url} priority width={275} height={340} alt="portait image"/>
             </div>
           </div>
           <div className="flex-1/2">

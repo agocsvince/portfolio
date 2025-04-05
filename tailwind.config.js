@@ -20,5 +20,8 @@ module.exports = {
         }
       },
     },
+    fontFamily: {
+      gothic: ['var(--font-dotgothic)', 'sans-serif'],
+    },
   },
 };
