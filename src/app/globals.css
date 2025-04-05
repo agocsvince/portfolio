@@ -1,19 +1,17 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --primary: #EDEDED;
-  --secondary: #B2B8AC;
-  --text: #232422;
-}
-
-@theme inline {
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-text: var(--text);
-  --font-sans: var(--font-geist-sans);
+  --light-primary: #EDEDED;
+  --light-secondary: #B2B8AC;
+  --light-text: #232422;
+  --dark-primary: #121212;
+  --dark-secondary: #393C37;
+  --dark-text: #D5DACF;
   --font-mono: var(--font-geist-mono);
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -24,7 +22,8 @@
 }
 
 body {
-  background: var(--primary);
-  color: var(--text);
-  font-family: var(--font-mono);
+  background: linear-gradient(to bottom left, #121212c2 0%, #121212e3 30%, var(--dark-primary) 100%);
+  color: var(--dark-text);
+  font-family: monospace, monospace;
+  height: 100vh;
 }

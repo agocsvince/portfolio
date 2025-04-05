@@ -57,7 +57,12 @@ export const DUMMY_DATA = {
           "id": "cm94aqa5try3707urmacymd1g",
           "url": "https://media.graphassets.com/7PiLj5hQTfeMViP0bNGl"
         }
-      ]
+      ],
+      "portrait": {
+        "fileName": "vince_filmen-6.jpg",
+        "id": "cm94ar70fryw307ur3yr199py",
+        "url": "https://media.graphassets.com/mTGFNdCZStOCkNG6I4bj"
+      }
     }
   }
 }
