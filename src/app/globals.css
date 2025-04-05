@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #EDEDED;
+  --secondary: #B2B8AC;
+  --text: #232422;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-text: var(--text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #121212;
+    --secondary: #393C37;
+    --text: #D5DACF;
+  }
+}
+
+body {
+  background: var(--primary);
+  color: var(--text);
+  font-family: var(--font-mono);
+}
