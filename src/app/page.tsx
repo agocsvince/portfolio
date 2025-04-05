@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 import getPortfolio from "@/helpers/api";
 import { portfolioType } from "@/helpers/types";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const emptyPortfolio = {
   buttons: [""],
