@@ -34,8 +34,10 @@
 }
 
 body {
-  background: linear-gradient(to bottom left, #121212c2 0%, #121212e3 30%, var(--dark-primary) 100%);
+  background: linear-gradient(to bottom left, #121212c2 0%, #121212ef 15%, var(--dark-primary) 50%, #121212ef 85%, #121212c2 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--dark-text);
   font-family: monospace, monospace;
-  height: 100vh;
+  height: max-content;
 }

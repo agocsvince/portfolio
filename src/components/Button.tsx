@@ -19,7 +19,7 @@ const Button = ({ type, onClick, className, children}:
   }
 
   return (
-    <button onClick={onClick} className={`${typeClass} ${className} cursor-pointer`}>{children}</button>
+    <button onClick={onClick} className={`${typeClass} ${className} cursor-pointer max-h-min`}>{children}</button>
   )
 }
 
