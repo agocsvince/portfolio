@@ -6,12 +6,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended', // disables conflicting rules
   ],
-  plugins: [
-    'react',
-    'react-hooks',
-    '@typescript-eslint',
-    'unused-imports',
-  ],
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'unused-imports'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

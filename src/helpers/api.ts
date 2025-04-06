@@ -1,9 +1,9 @@
-import { DUMMY_DATA } from './dummyData'
+import { DUMMY_DATA } from './dummyData';
 
 const getPortfolio = async () => {
   // TODO: fetch logic
 
-  return DUMMY_DATA
-}
+  return DUMMY_DATA;
+};
 
-export default getPortfolio
+export default getPortfolio;

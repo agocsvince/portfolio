@@ -1,24 +1,24 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --light-primary: #EDEDED;
-  --light-secondary: #B2B8AC;
+  --light-primary: #ededed;
+  --light-secondary: #b2b8ac;
   --light-text: #232422;
   --dark-primary: #121212;
-  --dark-secondary: #393C37;
-  --dark-text: #D5DACF;
+  --dark-secondary: #393c37;
+  --dark-text: #d5dacf;
   --font-mono: var(--font-geist-mono);
-  --font-gothic: "DotGothic16", "DotGothic16 Fallback"; 
+  --font-gothic: 'DotGothic16', 'DotGothic16 Fallback';
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #121212;
-    --secondary: #393C37;
-    --text: #D5DACF;
+    --secondary: #393c37;
+    --text: #d5dacf;
   }
 }
 
@@ -46,8 +46,19 @@
   }
 }
 
+html {
+  background-color: var(--dark-primary);
+}
+
 body {
-  background: linear-gradient(to bottom left, #121212c2 0%, #121212ef 15%, var(--dark-primary) 50%, #121212ef 85%, #121212c2 100%);
+  background: linear-gradient(
+    to bottom left,
+    #121212c2 0%,
+    #121212ef 15%,
+    var(--dark-primary) 50%,
+    #121212ef 85%,
+    #121212c2 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--dark-text);

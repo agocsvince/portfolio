@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { DotGothic16, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import ClientLayout from "@/components/ClientLayout";
+import type { Metadata } from 'next';
+import { DotGothic16, Geist_Mono } from 'next/font/google';
+import './globals.css';
+import ClientLayout from '@/components/ClientLayout';
 
 const dotGothic = DotGothic16({
   subsets: ['latin'],
@@ -11,13 +11,13 @@ const dotGothic = DotGothic16({
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
   title: "Vince Agocs's portfolio",
-  description: "Vince Agocs web developer & videographer",
+  description: 'Vince Agocs web developer & videographer',
 };
 
 export default function RootLayout({
@@ -30,9 +30,7 @@ export default function RootLayout({
       <body
         className={`${dotGothic.variable} ${geistMono.variable} antialiased`}
       >
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
