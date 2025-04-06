@@ -37,9 +37,11 @@
     0%,
     100% {
       visibility: hidden;
+      opacity: 0;
     }
     50% {
       visibility: visible;
+      opacity: 1;
     }
   }
 }

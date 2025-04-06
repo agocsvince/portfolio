@@ -1,4 +1,6 @@
-export const DUMMY_DATA = {
+import { portfolioType } from "./types";
+
+export const DUMMY_DATA: { data: { portfolio: portfolioType }} = {
   "data": {
     "portfolio": {
       "buttons": [

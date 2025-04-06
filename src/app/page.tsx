@@ -5,6 +5,8 @@ import getPortfolio from "@/helpers/api";
 import { portfolioType } from "@/helpers/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useLoadingStore } from '@/stores/LoadingStore'
+import { GlobalLoader } from "@/components/GlobaLoader";
 
 const emptyPortfolio = {
   buttons: [""],
@@ -31,15 +33,15 @@ const emptyPortfolio = {
 
 export default function Home() {
   const [portfolio, setPortfolio] = useState<portfolioType>(emptyPortfolio)
-  const [isLoading, setIsloading] = useState(true)
+  const { isLoading, setIsLoading } = useLoadingStore()
 
   useEffect(() => {
     const getData = async () => {
-      setIsloading(true)
+      setIsLoading(true)
       const response = await getPortfolio()
       // TODO: promise logic
       setPortfolio(response.data.portfolio)
-      setIsloading(false)
+      setIsLoading(false)
     }
     
     getData()
@@ -51,7 +53,7 @@ export default function Home() {
   }
 
   return (
-    !isLoading && <div>
+    portfolio.heading.length && <div>
       <main className="min-h-[100vh] px-20">
         {/* MAIN */}
         <div id="contact-section" className="flex flex-col items-center min-h-[100vh]">
@@ -75,14 +77,14 @@ export default function Home() {
                <Button key={index} type={index % 2 ? 'light' : 'dark'} 
                className="px-6 py-1 text-lg" onClick={() => {}}>{button}</Button>)}
           </div>
-          <div className="z-90 absolute bottom-0 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
+          <div className="z-3 absolute bottom-0 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
            onClick={() => scrollintoViewHandler("works")}>
             <p className="text-2xl">works</p>
             <p className="rotate-90 text-2xl -mr-1">&gt;</p>
           </div>
         </div>
           <div id="works-section" className="relative min-h-[1024px] flex flex-col items-center">
-            <div className="z-99 absolute top-0 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
+            <div className="z-3 absolute top-0 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
              onClick={() => scrollintoViewHandler("contact")}>
               <p className="-rotate-90 text-2xl -ml-2">&gt;</p>
               <p className="text-2xl">contact</p>
@@ -93,6 +95,7 @@ export default function Home() {
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         {/* FOOTER */}
       </footer>
+      <GlobalLoader />
     </div>
   );
 }
