@@ -33,7 +33,7 @@ const emptyPortfolio = {
 
 export default function Home() {
   const [portfolio, setPortfolio] = useState<portfolioType>(emptyPortfolio)
-  const { isLoading, setIsLoading } = useLoadingStore()
+  const { setIsLoading } = useLoadingStore()
 
   useEffect(() => {
     const getData = async () => {
