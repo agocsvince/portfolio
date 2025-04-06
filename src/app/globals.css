@@ -30,7 +30,18 @@
   --color-dark-secondary: var(--dark-secondary);
   --color-dark-text: var(--dark-text);
   --font-mono: var(--font-geist-mono);
-  --font-gothic: var(--font-gothic)
+  --font-gothic: var(--font-gothic);
+
+  --animate-block-fade: block-fade 3s infinite;
+  @keyframes block-fade {
+    0%,
+    100% {
+      visibility: hidden;
+    }
+    50% {
+      visibility: visible;
+    }
+  }
 }
 
 body {
