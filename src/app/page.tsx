@@ -51,13 +51,20 @@ export default function Home() {
     getData();
   }, []);
 
+  const composeEmail = (title: string) =>  {
+    const email = "vince.agocs@gmail.com";
+    const subject = `Hey, I need a ${title}`;
+    const body = "I wanted to reach out to you regarding...";
+    return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
   const scrollintoViewHandler = (target: string) => {
     const element = document.getElementById(`${target}-section`);
     element!.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
-    portfolio.heading.length && (
+    !!portfolio.heading.length && (
       <div>
         <main className="min-h-[100vh] px-5 md:px-8 lg:px-20 w-full">
           {/* MAIN */}
@@ -97,9 +104,8 @@ export default function Home() {
                   key={index}
                   type={index % 2 ? 'light' : 'dark'}
                   className="px-4 sm:px-6 py-1 text-sm sm:text-lg"
-                  onClick={() => { }}
                 >
-                  {button}
+                  <a href={composeEmail(button)}>{`You need ${button}`}</a>
                 </Button>
               ))}
             </div>

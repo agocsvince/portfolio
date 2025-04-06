@@ -3,7 +3,10 @@ import { portfolioType } from './types';
 export const DUMMY_DATA: { data: { portfolio: portfolioType } } = {
   data: {
     portfolio: {
-      buttons: ['You need website', 'You need video'],
+      "buttons": [
+        "website",
+        "video"
+      ],
       email: 'vince.agocs@gmail.com',
       heading: 'web developer & videographer',
       postHeading: 'based in Budapest',

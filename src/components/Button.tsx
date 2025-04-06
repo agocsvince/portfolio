@@ -8,7 +8,7 @@ const Button = ({
   children,
 }: {
   type: 'light' | 'dark';
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
   children?: ReactNode;
 }) => {
