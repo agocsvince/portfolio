@@ -59,30 +59,30 @@ export default function Home() {
   return (
     portfolio.heading.length && (
       <div>
-        <main className="min-h-[100vh] px-5 md:px-8 lg:px-20">
+        <main className="min-h-[100vh] px-5 md:px-8 lg:px-20 w-full">
           {/* MAIN */}
           <div
             id="contact-section"
-            className="flex flex-col items-center min-h-[100vh]"
+            className="flex flex-col items-center min-h-[100vh] pt-5 lg:pt-10"
           >
-            <div className=" gap-10 lg:gap-2 flex flex-row flex-wrap lg:flex-nowrap justify-between w-full py-10">
+            <div className="gap-10 lg:gap-2 flex flex-row flex-wrap lg:flex-nowrap justify-between w-full pb-10">
               <div className="flex flex-col flex-2/3 gap-1 text-center justify-center">
-                <h3 className="text-lg mb-1">{portfolio.preHeading}</h3>
-                <div className="border-2 border-light-primary px-4 py-2 mx-4">
-                  <h2 className="text-2xl">{portfolio.heading}</h2>
+                <h3 className="text-base sm:text-lg mb-1">{portfolio.preHeading}</h3>
+                <div className="border-2 border-light-primary px-2 py-1 sm:px-4 sm:py-2 mx-4">
+                  <h2 className="text-xl sm:text-2xl">{portfolio.heading}</h2>
                 </div>
-                <h4 className="text-base">{portfolio.postHeading}</h4>
+                <h4 className="text-xs sm:text-base">{portfolio.postHeading}</h4>
               </div>
-              <div className="flex flex-col flex-1/3 items-center lg:items-end gap-10 lg:gap-15">
+              <div className="flex flex-col flex-1/3 items-center lg:items-end gap-6 lg:gap-15">
                 <Button
                   type="light"
-                  className="px-5 py-1 text-lg"
-                  onClick={() => {}}
+                  className="px-5 py-1 text-sm sm:text-base lg:text-lg max-w-[80%] break-all"
+                  onClick={() => { }}
                 >
                   {portfolio.email}
                 </Button>
                 <Image
-                  className="max-w-[275px] md:h-auto"
+                  className="max-w-[80%] md:h-auto"
                   src={portfolio.portrait.url}
                   priority
                   width={275}
@@ -96,19 +96,19 @@ export default function Home() {
                 <Button
                   key={index}
                   type={index % 2 ? 'light' : 'dark'}
-                  className="px-6 py-1 text-lg"
-                  onClick={() => {}}
+                  className="px-4 sm:px-6 py-1 text-sm sm:text-lg"
+                  onClick={() => { }}
                 >
                   {button}
                 </Button>
               ))}
             </div>
             <div
-              className="z-3 absolute bottom-0 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
+              className="z-3 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
               onClick={() => scrollintoViewHandler('works')}
             >
-              <p className="text-2xl">works</p>
-              <p className="rotate-90 text-2xl -mr-1">&gt;</p>
+              <p className="text-2xl animate-wiggle hover:animate-none">works</p>
+              <p className="rotate-90 text-2xl -mr-1.5">&gt;</p>
             </div>
           </div>
           <div
@@ -116,11 +116,11 @@ export default function Home() {
             className="relative min-h-[1024px] flex flex-col items-center"
           >
             <div
-              className="z-3 absolute top-0 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
+              className="z-3 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
               onClick={() => scrollintoViewHandler('contact')}
             >
-              <p className="-rotate-90 text-2xl -ml-2">&gt;</p>
-              <p className="text-2xl">contact</p>
+              <p className="-rotate-90 text-2xl -ml-2.5">&gt;</p>
+              <p className="text-2xl animate-wiggle hover:animate-none delay-500">contact</p>
             </div>
           </div>
         </main>
