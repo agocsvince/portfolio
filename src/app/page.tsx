@@ -54,10 +54,10 @@ export default function Home() {
 
   return (
     portfolio.heading.length && <div>
-      <main className="min-h-[100vh] px-20">
+      <main className="min-h-[100vh] px-5 md:px-8 lg:px-20">
         {/* MAIN */}
         <div id="contact-section" className="flex flex-col items-center min-h-[100vh]">
-          <div className="flex-1/2 max-h-[50vh] flex flex-row justify-between w-full py-10">
+          <div className=" gap-10 lg:gap-2 flex flex-row flex-wrap lg:flex-nowrap justify-between w-full py-10">
             <div className="flex flex-col flex-2/3 gap-1 text-center justify-center">
               <h3 className="text-lg mb-1">{portfolio.preHeading}</h3>
               <div className="border-2 border-light-primary px-4 py-2 mx-4">
@@ -65,14 +65,14 @@ export default function Home() {
               </div>
               <h4 className="text-base">{portfolio.postHeading}</h4>
             </div>
-            <div className="flex flex-col flex-1/3 items-end gap-15">
+            <div className="flex flex-col flex-1/3 items-center lg:items-end gap-10 lg:gap-15">
               <Button type="light" className="px-5 py-1 text-lg" 
               onClick={() => {}}>{portfolio.email}</Button>
-              <Image className="max-w-[275px]" src={portfolio.portrait.url} 
+              <Image className="max-w-[275px] md:h-auto" src={portfolio.portrait.url} 
               priority width={275} height={340} alt="portait image"/>
             </div>
           </div>
-          <div className="h-full flex-1/2 grid grid-cols-2 items-center gap-10">
+          <div className="h-full grid grid-cols-2 items-center gap-10 my-auto">
             {portfolio.buttons.map((button, index) =>
                <Button key={index} type={index % 2 ? 'light' : 'dark'} 
                className="px-6 py-1 text-lg" onClick={() => {}}>{button}</Button>)}
