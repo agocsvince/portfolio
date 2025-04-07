@@ -7,7 +7,7 @@ const VideoEmbed = ({ video }: { video: assetType }) => {
 
   return (
     <div className='relative h-full w-full aspect-video'>
-        <video onLoadedData={() => setIsLoading(false)} autoPlay muted loop playsInline preload='metadata'>
+        <video onCanPlayThrough={() => setIsLoading(false)} autoPlay muted loop playsInline preload='metadata'>
           <source src={video.url} type={video.mimeType} />
 
         </video>
