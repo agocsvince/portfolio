@@ -7,9 +7,14 @@ export type portfolioType = {
   postHeading: string;
   preHeading: string;
   portrait: assetType;
-  photos: assetType[];
+  photos: photoType[];
   videos: assetType[];
 };
+
+interface photoType extends assetType {
+  height: number;
+  width: number;
+}
 
 type assetType = {
   fileName: string;

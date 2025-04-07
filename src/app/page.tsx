@@ -27,6 +27,8 @@ const emptyPortfolio = {
       fileName: '',
       id: '',
       url: '',
+      width: 0,
+      height:0
     },
   ],
   videos: [
@@ -41,9 +43,13 @@ const emptyPortfolio = {
 export default function Home() {
   const [portfolio, setPortfolio] = useState<portfolioType>(emptyPortfolio);
   const { setIsLoading } = useLoadingStore();
-  const [showWeb, setShowWeb] = useState(true)
+  const [showWeb, setShowWeb] = useState(true);
 
-  const titleProps = (({ preHeading, heading, postHeading }) => ({ preHeading, heading, postHeading }))(portfolio)
+  const titleProps = (({ preHeading, heading, postHeading }) => ({
+    preHeading,
+    heading,
+    postHeading,
+  }))(portfolio);
 
   useEffect(() => {
     const getData = async () => {
@@ -60,9 +66,9 @@ export default function Home() {
   const composeEmail = (title: string) => {
     const email = portfolio.email;
     const subject = `Hey, I need a ${title}`;
-    const body = "I wanted to reach out to you regarding...";
+    const body = 'I wanted to reach out to you regarding...';
     return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
+  };
 
   const scrollintoViewHandler = (target: string) => {
     const element = document.getElementById(`${target}-section`);
@@ -84,7 +90,7 @@ export default function Home() {
                 <Button
                   type="light"
                   className="px-5 py-1 text-sm sm:text-base lg:text-lg max-w-[80%] break-all lg:break-normal"
-                  onClick={() => { }}
+                  onClick={() => {}}
                 >
                   <a href={composeEmail('...')}>{portfolio.email}</a>
                 </Button>
@@ -103,7 +109,9 @@ export default function Home() {
               className="z-3 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
               onClick={() => scrollintoViewHandler('works')}
             >
-              <p className="text-2xl animate-wiggle hover:animate-none">works</p>
+              <p className="text-2xl animate-wiggle hover:animate-none">
+                works
+              </p>
               <p className="rotate-90 text-2xl -mr-1.5">&gt;</p>
             </div>
           </div>
@@ -116,23 +124,63 @@ export default function Home() {
               onClick={() => scrollintoViewHandler('contact')}
             >
               <p className="-rotate-90 text-2xl -ml-2.5">&gt;</p>
-              <p className="text-2xl animate-wiggle hover:animate-none delay-500">contact</p>
+              <p className="text-2xl animate-wiggle hover:animate-none delay-500">
+                contact
+              </p>
             </div>
             {/* WORKS SECTION */}
-            <Switcher state={showWeb} setState={setShowWeb} labels={["website", "video"]} className='mb-8'/>
-            {showWeb && <div className='flex flex-row items-center justify-center'>
-              
-            </div>}
-            {!showWeb && <div className='flex flex-row items-center justify-center'>
-              <div className='flex flex-col gap-8'>
-              {portfolio.videos.map((video, index) => {
-                return <div key={video.id} className='flex flex-col gap-8'>
-                  <video src={video.url} autoPlay muted loop/>
-                  {index !== portfolio.videos.length -1 && <hr />}
-                  </div>
-              })}
+            <Switcher
+              state={showWeb}
+              setState={setShowWeb}
+              labels={['website', 'video']}
+              className="mb-8"
+            />
+            {showWeb && (
+              <div className="flex flex-row items-center justify-center">
+                <div className="relative max-w-[400px] flex flex-col items-center">
+                  <Image
+                    src={'/iPhone_border.png'}
+                    alt="iPhone border"
+                    width={425}
+                    height={855}
+                    className="relative z-2"
+                  />
+                  <iframe
+                    src="http://gyuben.com"
+                    className="absolute rounded-[50px] z-2 top-0 p-3 overflow-hidden h-full w-full"
+                  ></iframe>
+                </div>
               </div>
-            </div>}
+            )}
+            {!showWeb && (
+              <div className="flex flex-row items-center justify-center">
+                <div className="flex flex-col gap-8">
+                  {portfolio.videos.map((video, index) => {
+                    return (
+                      <div key={video.id} className="flex flex-col gap-8">
+                        <video src={video.url} autoPlay muted loop />
+                        {index !== portfolio.videos.length - 1 && <hr />}
+                      </div>
+                    );
+                  })}
+                  {!!portfolio.photos.length && <hr />}
+                  <div className="flex flex-row flex-wrap gap-8 justify-center">
+                  {portfolio.photos.map((photo) => {
+                      return (
+                        <div key={photo.id} className={`${photo.width > photo.height ? 'flex-[35%]' : 'flex-[25%]'} flex flex-col gap-8`}>
+                          <Image
+                            src={photo.url}
+                            alt={`Photo of ${photo.fileName}`}
+                            width={photo.width}
+                            height={photo.height}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
