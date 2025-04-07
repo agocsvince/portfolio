@@ -150,12 +150,12 @@ export default function Home() {
                     );
                   })}
                   {!!portfolio.photos.length && <hr />}
-                  <div className='flex flex-row flex-wrap gap-8 justify-center'>
+                  <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary'>
                     {portfolio.photos.map((photo) => {
                       return (
                         <div
                           key={photo.id}
-                          className={`${photo.width > photo.height ? 'flex-[35%]' : 'flex-[25%]'} flex flex-col gap-8`}
+                          className={`${photo.width > photo.height ? 'flex-[35%]' : 'flex-[25%]'} flex flex-col gap-4`}
                         >
                           <Image
                             src={photo.url}
