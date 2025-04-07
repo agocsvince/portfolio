@@ -135,7 +135,7 @@ export default function Home() {
             />
             {showWeb && (
               <div className='flex flex-row items-center justify-center'>
-                <WebpageEmbed src='http://gyuben.com' />
+                <WebpageEmbed src='https://gyuben.com' />
               </div>
             )}
             {!showWeb && (
