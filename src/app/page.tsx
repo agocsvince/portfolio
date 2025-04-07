@@ -158,7 +158,7 @@ export default function Home() {
                   {portfolio.videos.map((video, index) => {
                     return (
                       <div key={video.id} className="flex flex-col gap-8">
-                        <video src={video.url} autoPlay muted loop />
+                        <video src={video.url} autoPlay muted loop playsInline />
                         {index !== portfolio.videos.length - 1 && <hr />}
                       </div>
                     );
