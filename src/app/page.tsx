@@ -10,6 +10,7 @@ import { GlobalLoader } from '@/components/GlobaLoader';
 import Switcher from '@/components/Switcher';
 import Title from '@/components/Title';
 import ContactButtons from '@/components/ContactButtons';
+import WebpageEmbed from '@/components/WebpageEmbed';
 
 const emptyPortfolio = {
   buttons: [''],
@@ -28,7 +29,7 @@ const emptyPortfolio = {
       id: '',
       url: '',
       width: 0,
-      height:0
+      height: 0,
     },
   ],
   videos: [
@@ -78,96 +79,83 @@ export default function Home() {
   return (
     !!portfolio.heading.length && (
       <div>
-        <main className="min-h-[100vh] px-5 md:px-8 lg:px-15 w-full">
+        <main className='min-h-[100vh] px-5 md:px-8 lg:px-15 w-full'>
           {/* MAIN */}
           <div
-            id="contact-section"
-            className="flex flex-col items-center min-h-[100vh] pt-5 lg:pt-10"
+            id='contact-section'
+            className='flex flex-col items-center min-h-[100vh] pt-5 lg:pt-10'
           >
-            <div className="gap-10 lg:gap-2 flex flex-row flex-wrap lg:flex-nowrap justify-between w-full pb-10">
+            <div className='gap-10 lg:gap-2 flex flex-row flex-wrap lg:flex-nowrap justify-between w-full pb-10'>
               <Title text={titleProps} />
-              <div className="flex flex-col flex-1/3 items-center lg:items-end gap-6 lg:gap-15">
+              <div className='flex flex-col flex-1/3 items-center lg:items-end gap-6 lg:gap-15'>
                 <Button
-                  type="light"
-                  className="px-5 py-1 text-sm sm:text-base lg:text-lg max-w-[80%] break-all lg:break-normal"
+                  type='light'
+                  className='px-5 py-1 text-sm sm:text-base lg:text-lg max-w-[80%] break-all lg:break-normal'
                   onClick={() => {}}
                 >
                   <a href={composeEmail('...')}>{portfolio.email}</a>
                 </Button>
                 <Image
-                  className="max-w-[80%] md:h-auto"
+                  className='max-w-[80%] md:h-auto'
                   src={portfolio.portrait.url}
                   priority
                   width={275}
                   height={340}
-                  alt="portait image"
+                  alt='portait image'
                 />
               </div>
             </div>
             <ContactButtons buttons={portfolio.buttons} href={composeEmail} />
             <div
-              className="z-3 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
+              className='z-3 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
               onClick={() => scrollintoViewHandler('works')}
             >
-              <p className="text-2xl animate-wiggle hover:animate-none">
-                works
-              </p>
-              <p className="rotate-90 text-2xl -mr-1.5">&gt;</p>
+              <p className='text-2xl animate-wiggle hover:animate-none'>works</p>
+              <p className='rotate-90 text-2xl -mr-1.5'>&gt;</p>
             </div>
           </div>
           <div
-            id="works-section"
-            className="relative min-h-[1024px] flex flex-col items-center mb-8"
+            id='works-section'
+            className='relative min-h-[1024px] flex flex-col items-center mb-8'
           >
             <div
-              className="z-3 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
+              className='z-3 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
               onClick={() => scrollintoViewHandler('contact')}
             >
-              <p className="-rotate-90 text-2xl -ml-2.5">&gt;</p>
-              <p className="text-2xl animate-wiggle hover:animate-none delay-500">
-                contact
-              </p>
+              <p className='-rotate-90 text-2xl -ml-2.5'>&gt;</p>
+              <p className='text-2xl animate-wiggle hover:animate-none delay-500'>contact</p>
             </div>
             {/* WORKS SECTION */}
             <Switcher
               state={showWeb}
               setState={setShowWeb}
               labels={['website', 'video']}
-              className="mb-8"
+              className='mb-8'
             />
             {showWeb && (
-              <div className="flex flex-row items-center justify-center">
-                <div className="relative max-w-[400px] flex flex-col items-center">
-                  <Image
-                    src={'/iPhone_border.png'}
-                    alt="iPhone border"
-                    width={425}
-                    height={855}
-                    className="relative z-2"
-                  />
-                  <iframe
-                    src="http://gyuben.com"
-                    className="absolute rounded-[50px] z-2 top-0 p-3 overflow-hidden h-full w-full"
-                  ></iframe>
-                </div>
+              <div className='flex flex-row items-center justify-center'>
+                <WebpageEmbed src='http://gyuben.com' />
               </div>
             )}
             {!showWeb && (
-              <div className="flex flex-row items-center justify-center">
-                <div className="flex flex-col gap-8">
+              <div className='lex flex-row items-center justify-center'>
+                <div className='flex flex-col gap-8'>
                   {portfolio.videos.map((video, index) => {
                     return (
-                      <div key={video.id} className="flex flex-col gap-8">
+                      <div key={video.id} className='flex flex-col gap-8'>
                         <video src={video.url} autoPlay muted loop playsInline />
                         {index !== portfolio.videos.length - 1 && <hr />}
                       </div>
                     );
                   })}
                   {!!portfolio.photos.length && <hr />}
-                  <div className="flex flex-row flex-wrap gap-8 justify-center">
-                  {portfolio.photos.map((photo) => {
+                  <div className='flex flex-row flex-wrap gap-8 justify-center'>
+                    {portfolio.photos.map((photo) => {
                       return (
-                        <div key={photo.id} className={`${photo.width > photo.height ? 'flex-[35%]' : 'flex-[25%]'} flex flex-col gap-8`}>
+                        <div
+                          key={photo.id}
+                          className={`${photo.width > photo.height ? 'flex-[35%]' : 'flex-[25%]'} flex flex-col gap-8`}
+                        >
                           <Image
                             src={photo.url}
                             alt={`Photo of ${photo.fileName}`}
@@ -183,7 +171,7 @@ export default function Home() {
             )}
           </div>
         </main>
-        <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        <footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'>
           {/* FOOTER */}
         </footer>
         <GlobalLoader />

@@ -1,8 +1,14 @@
 import { switcherPropsType } from '@/helpers/types';
-import { Switch } from '@mui/material'
-import React from 'react'
+import { Switch } from '@mui/material';
+import React from 'react';
 
-const Switcher = <T extends boolean>({ state, setState, labels, color = "default", className }: switcherPropsType<T> ) => {
+const Switcher = <T extends boolean>({
+  state,
+  setState,
+  labels,
+  color = 'default',
+  className,
+}: switcherPropsType<T>) => {
   return (
     <div className={`${className} flex flex-col items-center`}>
       <Switch color={color} onChange={() => setState(!state as T)} value={state} />
@@ -11,4 +17,4 @@ const Switcher = <T extends boolean>({ state, setState, labels, color = "default
   );
 };
 
-export default Switcher
+export default Switcher;
