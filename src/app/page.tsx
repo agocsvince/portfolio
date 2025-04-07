@@ -39,6 +39,16 @@ const emptyPortfolio = {
       fileName: '',
       id: '',
       url: '',
+      date: `2025-04-07` as `${number}-${number}-${number}`,
+      type: '',
+      title: '',
+      description: '',
+      asset: {
+        fileName: '',
+        id: '',
+        url: '',
+        mimeType: '',
+      },
     },
   ],
 };

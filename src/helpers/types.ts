@@ -8,12 +8,21 @@ export type portfolioType = {
   preHeading: string;
   portrait: assetType;
   photos: photoType[];
-  videos: assetType[];
+  videos: videoType[];
 };
 
 export interface photoType extends assetType {
   height: number;
   width: number;
+}
+
+export interface videoType {
+  id: string;
+  date: `${number}-${number}-${number}`;
+  type: string;
+  title: string;
+  description: string | null;
+  asset: assetType;
 }
 
 export type assetType = {

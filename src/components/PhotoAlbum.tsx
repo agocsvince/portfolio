@@ -3,6 +3,11 @@ import Image from 'next/image';
 import React from 'react'
 
 const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
+  const onImageClick = () => {
+
+    
+  }
+
   return (
     <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary'>
       {photos.map((photo) => {
@@ -10,6 +15,7 @@ const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
           <div
             key={photo.id}
             className={`${photo.width > photo.height ? 'flex-[35%]' : 'flex-[25%]'} flex flex-col gap-4`}
+            onClick={() => onImageClick()}
           >
             <Image
               src={photo.url}

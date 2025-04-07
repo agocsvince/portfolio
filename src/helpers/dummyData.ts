@@ -83,33 +83,65 @@ export const DUMMY_DATA: { data: { portfolio: portfolioType } } = {
           "height": 2854
         }
       ],
-      "videos": [
-        {
-          "fileName": "Kain - Mostanában.mp4",
-          "id": "cm94aqa5try3707urmacymd1g",
-          "url": "https://media.graphassets.com/7PiLj5hQTfeMViP0bNGl"
-        },
-        {
-          "fileName": "Kain - Buda.mp4",
-          "id": "cm96stlqc64zn07te94m4iycm",
-          "url": "https://media.graphassets.com/26SYpc7yTFWLFHyJ0vL0"
-        },
-        {
-          "fileName": "Kain - Család.mp4",
-          "id": "cm96stlq260dr07uro5eyfshe",
-          "url": "https://media.graphassets.com/vFDlS1uSTD2infzERhbT"
-        },
-        {
-          "fileName": "Kain - Őszintén.mp4",
-          "id": "cm96stlr65z0y07w2u53tyag7",
-          "url": "https://media.graphassets.com/n3MK4jRTU6lN9xS9KbBz"
-        }
-      ],
       "portrait": {
         "fileName": "vince_filmen-6.jpg",
         "id": "cm94ar70fryw307ur3yr199py",
         "url": "https://media.graphassets.com/mwyqI5LAT3CVgAvCUTJY"
-      }
+      },
+      "videos": [
+        {
+          "id": "cm97inoq1qsmb08upsrrhrxfh",
+          "date": "2025-02-22",
+          "description": null,
+          "type": "Music Video",
+          "title": "Kain - Mostanában",
+          "asset": {
+            "fileName": "Kain - Mostanában.mp4",
+            "url": "https://media.graphassets.com/7PiLj5hQTfeMViP0bNGl",
+            "id": "cm94aqa5try3707urmacymd1g",
+            "mimeType": "video/mp4"
+          }
+        },
+        {
+          "id": "cm97inoq0qsm808upau9o9nzw",
+          "date": "2025-02-27",
+          "description": null,
+          "type": "Music Video",
+          "title": "Kain - Buda",
+          "asset": {
+            "fileName": "Kain - Buda.mp4",
+            "url": "https://media.graphassets.com/26SYpc7yTFWLFHyJ0vL0",
+            "id": "cm96stlqc64zn07te94m4iycm",
+            "mimeType": "video/mp4"
+          }
+        },
+        {
+          "id": "cm97inopzqsm608upjvha8978",
+          "date": "2025-03-04",
+          "description": null,
+          "type": "Music Video",
+          "title": "Kain - Őszintén",
+          "asset": {
+            "fileName": "Kain - Őszintén.mp4",
+            "url": "https://media.graphassets.com/n3MK4jRTU6lN9xS9KbBz",
+            "id": "cm96stlr65z0y07w2u53tyag7",
+            "mimeType": "video/mp4"
+          }
+        },
+        {
+          "id": "cm97inopyqsm408up6px0t0n8",
+          "date": "2025-03-07",
+          "description": null,
+          "type": "Music Video",
+          "title": "Kain - Család",
+          "asset": {
+            "fileName": "Kain - Család.mp4",
+            "url": "https://media.graphassets.com/vFDlS1uSTD2infzERhbT",
+            "id": "cm96stlq260dr07uro5eyfshe",
+            "mimeType": "video/mp4"
+          }
+        }
+      ]
     }
   }
 }
