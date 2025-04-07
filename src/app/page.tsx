@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useLoadingStore } from '@/stores/LoadingStore';
 import { GlobalLoader } from '@/components/GlobaLoader';
+import Switcher from '@/components/Switcher';
 
 const emptyPortfolio = {
   buttons: [''],
@@ -38,6 +39,7 @@ const emptyPortfolio = {
 export default function Home() {
   const [portfolio, setPortfolio] = useState<portfolioType>(emptyPortfolio);
   const { setIsLoading } = useLoadingStore();
+  const [showWeb, setShowWeb] = useState(true)
 
   useEffect(() => {
     const getData = async () => {
@@ -52,7 +54,7 @@ export default function Home() {
   }, []);
 
   const composeEmail = (title: string) =>  {
-    const email = "vince.agocs@gmail.com";
+    const email = portfolio.email;
     const subject = `Hey, I need a ${title}`;
     const body = "I wanted to reach out to you regarding...";
     return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -66,7 +68,7 @@ export default function Home() {
   return (
     !!portfolio.heading.length && (
       <div>
-        <main className="min-h-[100vh] px-5 md:px-8 lg:px-20 w-full">
+        <main className="min-h-[100vh] px-5 md:px-8 lg:px-15 w-full">
           {/* MAIN */}
           <div
             id="contact-section"
@@ -83,10 +85,10 @@ export default function Home() {
               <div className="flex flex-col flex-1/3 items-center lg:items-end gap-6 lg:gap-15">
                 <Button
                   type="light"
-                  className="px-5 py-1 text-sm sm:text-base lg:text-lg max-w-[80%] break-all"
+                  className="px-5 py-1 text-sm sm:text-base lg:text-lg max-w-[80%] break-all lg:break-normal"
                   onClick={() => { }}
                 >
-                  {portfolio.email}
+                  <a href={composeEmail('...')}>{portfolio.email}</a>
                 </Button>
                 <Image
                   className="max-w-[80%] md:h-auto"
@@ -103,9 +105,9 @@ export default function Home() {
                 <Button
                   key={index}
                   type={index % 2 ? 'light' : 'dark'}
-                  className="px-4 sm:px-6 py-1 text-sm sm:text-lg"
+                  className="px-2 sm:px-6 py-1 text-sm sm:text-lg"
                 >
-                  <a href={composeEmail(button)}>{`You need ${button}`}</a>
+                  <a href={composeEmail(button)} className='max-w-[90px] sm:max-w-max block sm:inline overflow-hidden'>{`You need ${button}`}</a>
                 </Button>
               ))}
             </div>
@@ -128,6 +130,8 @@ export default function Home() {
               <p className="-rotate-90 text-2xl -ml-2.5">&gt;</p>
               <p className="text-2xl animate-wiggle hover:animate-none delay-500">contact</p>
             </div>
+            {/* WORKS SECTION */}
+            <Switcher state={showWeb} setState={setShowWeb} labels={["website", "video"]}/>
           </div>
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

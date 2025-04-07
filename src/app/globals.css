@@ -1,5 +1,6 @@
-@import 'tailwindcss';
 @tailwind utilities;
+@import 'tailwindcss';
+@import '../components/switcher.css';
 
 :root {
   --light-primary: #ededed;
