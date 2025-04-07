@@ -11,7 +11,7 @@ export type portfolioType = {
   videos: assetType[];
 };
 
-interface photoType extends assetType {
+export interface photoType extends assetType {
   height: number;
   width: number;
 }

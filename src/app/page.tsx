@@ -11,7 +11,8 @@ import Switcher from '@/components/Switcher';
 import Title from '@/components/Title';
 import ContactButtons from '@/components/ContactButtons';
 import WebpageEmbed from '@/components/WebpageEmbed';
-import VideoEmbed from '@/components/VideoEmbed';
+import PhotoAlbum from '@/components/PhotoAlbum';
+import VideoReel from '@/components/VideoReel';
 
 const emptyPortfolio = {
   buttons: [''],
@@ -141,32 +142,9 @@ export default function Home() {
             {!showWeb && (
               <div className='lex flex-row items-center justify-center'>
                 <div className='flex flex-col gap-8'>
-                  {portfolio.videos.map((video, index) => {
-                    return (
-                      <div key={video.id} className='flex flex-col gap-8'>
-                        <VideoEmbed video={video} />
-                        {index !== portfolio.videos.length - 1 && <hr />}
-                      </div>
-                    );
-                  })}
+                  <VideoReel videos={portfolio.videos} />
                   {!!portfolio.photos.length && <hr />}
-                  <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary'>
-                    {portfolio.photos.map((photo) => {
-                      return (
-                        <div
-                          key={photo.id}
-                          className={`${photo.width > photo.height ? 'flex-[35%]' : 'flex-[25%]'} flex flex-col gap-4`}
-                        >
-                          <Image
-                            src={photo.url}
-                            alt={`Photo of ${photo.fileName}`}
-                            width={photo.width}
-                            height={photo.height}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <PhotoAlbum photos={portfolio.photos}/>
                 </div>
               </div>
             )}

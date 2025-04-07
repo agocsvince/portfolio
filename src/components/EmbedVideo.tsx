@@ -2,7 +2,7 @@ import { assetType } from '@/helpers/types'
 import React, { useState } from 'react'
 import VideoLoadPoster from './VideoLoadPoster'
 
-const VideoEmbed = ({ video }: { video: assetType }) => {
+const EmbedVideo = ({ video }: { video: assetType }) => {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
@@ -16,4 +16,4 @@ const VideoEmbed = ({ video }: { video: assetType }) => {
   )
 }
 
-export default VideoEmbed
+export default EmbedVideo
