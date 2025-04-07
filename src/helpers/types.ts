@@ -16,10 +16,11 @@ interface photoType extends assetType {
   width: number;
 }
 
-type assetType = {
+export type assetType = {
   fileName: string;
   id: string;
   url: string;
+  mimeType?: string;
 };
 
 type switchColorType =

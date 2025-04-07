@@ -11,6 +11,7 @@ import Switcher from '@/components/Switcher';
 import Title from '@/components/Title';
 import ContactButtons from '@/components/ContactButtons';
 import WebpageEmbed from '@/components/WebpageEmbed';
+import VideoEmbed from '@/components/VideoEmbed';
 
 const emptyPortfolio = {
   buttons: [''],
@@ -143,7 +144,7 @@ export default function Home() {
                   {portfolio.videos.map((video, index) => {
                     return (
                       <div key={video.id} className='flex flex-col gap-8'>
-                        <video src={video.url} autoPlay muted loop playsInline />
+                        <VideoEmbed video={video} />
                         {index !== portfolio.videos.length - 1 && <hr />}
                       </div>
                     );
