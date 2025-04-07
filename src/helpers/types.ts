@@ -19,4 +19,4 @@ type assetType = {
 
 type switchColorType = "default" | "primary" | "secondary" | "error" | "info" | "success" | "warning"
 
-export type switcherPropsType<T> = { state: T; setState: React.Dispatch<SetStateAction<T>>, labels: [string, string], color?: switchColorType }
+export type switcherPropsType<T> = { state: T; setState: React.Dispatch<SetStateAction<T>>, labels: [string, string], color?: switchColorType, className?: string }

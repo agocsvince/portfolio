@@ -55,10 +55,25 @@ export const DUMMY_DATA: { data: { portfolio: portfolioType } } = {
       ],
       videos: [
         {
-          fileName: 'Kain - Mostanában.mp4',
-          id: 'cm94aqa5try3707urmacymd1g',
-          url: 'https://media.graphassets.com/7PiLj5hQTfeMViP0bNGl',
+          "fileName": "Kain - Mostanában.mp4",
+          "id": "cm94aqa5try3707urmacymd1g",
+          "url": "https://media.graphassets.com/7PiLj5hQTfeMViP0bNGl"
         },
+        {
+          "fileName": "Kain - Buda.mp4",
+          "id": "cm96stlqc64zn07te94m4iycm",
+          "url": "https://media.graphassets.com/26SYpc7yTFWLFHyJ0vL0"
+        },
+        {
+          "fileName": "Kain - Család.mp4",
+          "id": "cm96stlq260dr07uro5eyfshe",
+          "url": "https://media.graphassets.com/vFDlS1uSTD2infzERhbT"
+        },
+        {
+          "fileName": "Kain - Őszintén.mp4",
+          "id": "cm96stlr65z0y07w2u53tyag7",
+          "url": "https://media.graphassets.com/n3MK4jRTU6lN9xS9KbBz"
+        }
       ],
       portrait: {
         fileName: 'vince_filmen-6.jpg',

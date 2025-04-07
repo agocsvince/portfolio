@@ -109,7 +109,7 @@ export default function Home() {
           </div>
           <div
             id="works-section"
-            className="relative min-h-[1024px] flex flex-col items-center"
+            className="relative min-h-[1024px] flex flex-col items-center mb-8"
           >
             <div
               className="z-3 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer"
@@ -119,7 +119,20 @@ export default function Home() {
               <p className="text-2xl animate-wiggle hover:animate-none delay-500">contact</p>
             </div>
             {/* WORKS SECTION */}
-            <Switcher state={showWeb} setState={setShowWeb} labels={["website", "video"]} />
+            <Switcher state={showWeb} setState={setShowWeb} labels={["website", "video"]} className='mb-8'/>
+            {showWeb && <div className='flex flex-row items-center justify-center'>
+              
+            </div>}
+            {!showWeb && <div className='flex flex-row items-center justify-center'>
+              <div className='flex flex-col gap-8'>
+              {portfolio.videos.map((video, index) => {
+                return <div key={video.id} className='flex flex-col gap-8'>
+                  <video src={video.url} autoPlay muted loop/>
+                  {index !== portfolio.videos.length -1 && <hr />}
+                  </div>
+              })}
+              </div>
+            </div>}
           </div>
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
