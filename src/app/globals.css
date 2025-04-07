@@ -73,43 +73,15 @@ html {
 body {
   background: linear-gradient(
     to bottom left,
-    #121212c2 0%,
-    #121212ef 15%,
+    #1212126e 0%,
+    #121212ef 20%,
     var(--dark-primary) 50%,
-    #121212ef 85%,
-    #121212c2 100%
+    #121212ef 80%,
+    #12121270 100%
   );
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--dark-text);
   font-family: monospace, monospace;
   height: max-content;
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  50% {
-    opacity: .5;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-.shine-layer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 20%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  animation: shine 1s ease-in-out infinite;
-  animation-delay: 2s;
-  animation-iteration-count: infinite;
-  overflow: hidden;
 }
