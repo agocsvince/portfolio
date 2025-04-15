@@ -24,6 +24,7 @@ export const getPortfolioQuery = `
         description
         type
         title
+        url
         asset {
           fileName
           url(transformation: {})

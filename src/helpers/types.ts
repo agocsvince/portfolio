@@ -23,6 +23,7 @@ export interface videoType {
   title: string;
   description: string | null;
   asset: assetType;
+  url: string;
 }
 
 export type assetType = {
