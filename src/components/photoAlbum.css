@@ -1,0 +1,21 @@
+.PhotoView-Slider__ArrowRight svg {
+  display: none;
+}
+
+.PhotoView-Slider__ArrowRight::after {
+  content: '>';
+  color: var(--light-primary);
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.PhotoView-Slider__ArrowLeft svg {
+  display: none;
+}
+
+.PhotoView-Slider__ArrowLeft::after {
+  content: '<';
+  color: var(--light-primary);
+  font-size: 1.5rem;
+  display: inline-block;
+}
