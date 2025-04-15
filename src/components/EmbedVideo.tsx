@@ -14,7 +14,7 @@ const EmbedVideo = ({ video }: { video: videoType }) => {
 
         </video>
         {isLoading && <Loader />}
-        <div className={`${showInfo ? `opacity-100 scale-100` : `opacity-0 scale-0`} p-4 sm:p-8 justify-between flex flex-col transition-opacity ease-in-out h-full w-full bg-dark-primary/80 absolute top-0 left-0`}>
+        <div className={`${showInfo ? `opacity-100 scale-100` : `opacity-0 scale-0`} p-4 sm:p-8 justify-between flex flex-col transition-opacity ease-in-out h-[calc(100%+1px)] w-full bg-dark-primary/80 absolute top-0 left-0`}>
         <div className='flex flex-row justify-between'>
           <div className='flex flex-col'>
             <h2 className='text-xs sm:text-base opacity-80'>{video.type}</h2>

@@ -13,7 +13,7 @@ const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
         {photos.map((photo) => (
             <div
               key={photo.id}
-              className={`${photo.width > photo.height ? 'flex-[35%]' : 'flex-[25%]'} flex flex-col gap-4`}
+              className={`${photo.width > photo.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'} flex flex-col gap-4`}
             >
               <PhotoView src={photo.url}>
                 <Image
