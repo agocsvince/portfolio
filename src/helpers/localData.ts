@@ -11,6 +11,7 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
       "heading": "web developer & videographer",
       "postHeading": "based in Budapest",
       "preHeading": "Hi, my name is Vince",
+      "intro": "I'm a full-stack developer with a strong focus on front-end technologies like React, Next.js, and TypeScript. I thrive on solving problems through clean, well-structured code and intuitive user interfaces. Over the past few years, I’ve worked on a range of projects—from large-scale platforms to lean startup environments—often taking ownership of the entire development process.\n\nIn addition to coding, I have a deep passion for visual storytelling. I shoot and edit music videos, short films, and other creative video content, and I’m also experienced in photography. I enjoy bringing ideas to life—whether it's through code, camera, or a blend of both.",
       "photos": [
         {
           "fileName": "000046590015.jpg",

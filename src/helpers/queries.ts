@@ -6,6 +6,7 @@ export const getPortfolioQuery = `
       heading
       postHeading
       preHeading
+      intro
       photos(first: 10) {
         fileName
         id

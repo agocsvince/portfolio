@@ -7,7 +7,6 @@ const EmbedVideo = ({ video }: { video: videoType }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [showInfo, setShowInfo] = useState(false);
 
-
   return (
     <div className='relative h-full w-full aspect-video'  onClick={() => setShowInfo(!showInfo)}>
         <video onCanPlayThrough={() => setIsLoading(false)} autoPlay muted loop playsInline preload='metadata'>

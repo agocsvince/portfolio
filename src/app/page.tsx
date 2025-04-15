@@ -20,6 +20,7 @@ const emptyPortfolio = {
   heading: '',
   postHeading: '',
   preHeading: '',
+  intro: '',
   portrait: {
     fileName: '',
     id: '',
@@ -58,10 +59,11 @@ export default function Home() {
   const { setIsLoading } = useLoadingStore();
   const [showWeb, setShowWeb] = useState(true);
 
-  const titleProps = (({ preHeading, heading, postHeading }) => ({
+  const titleProps = (({ preHeading, heading, postHeading, intro }) => ({
     preHeading,
     heading,
     postHeading,
+    intro
   }))(portfolio);
 
   useEffect(() => {
@@ -96,7 +98,7 @@ export default function Home() {
             id='contact-section'
             className='flex flex-col items-center min-h-[100vh] pt-5 lg:pt-10'
           >
-            <div className='gap-10 lg:gap-2 flex flex-row flex-wrap lg:flex-nowrap justify-between w-full pb-10'>
+            <div className='gap-10 lg:gap-2 flex flex-row flex-wrap lg:flex-nowrap justify-between w-full mb-10'>
               <Title text={titleProps} />
               <div className='flex flex-col flex-1/3 items-center lg:items-end gap-6 lg:gap-15'>
                 <Button
@@ -117,6 +119,7 @@ export default function Home() {
               </div>
             </div>
             <ContactButtons buttons={portfolio.buttons} href={composeEmail} />
+            <p className='px-4 mt-10 lg:hidden block text-xs sm:text-sm opacity-80 whitespace-pre-line text-center'>{portfolio.intro}</p>
             <div
               className='z-30 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
               onClick={() => scrollintoViewHandler('works')}

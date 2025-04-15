@@ -5,6 +5,7 @@ export type portfolioType = {
   email: string;
   heading: string;
   postHeading: string;
+  intro: string;
   preHeading: string;
   portrait: assetType;
   photos: photoType[];

@@ -13,7 +13,7 @@ const Switcher = <T extends boolean>({
     <div className={`${className} flex flex-col items-center cursor-pointer`}
      onClick={() => setState(!state as T)}>
       <Switch color={color} onChange={() => setState(!state as T)} value={state} />
-      <span>{state ? labels[0] : labels[1]}</span>
+      <span className='text-center'>{state ? labels[0] : labels[1]}</span>
     </div>
   );
 };
