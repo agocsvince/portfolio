@@ -1,6 +1,6 @@
 import { portfolioType } from './types';
 
-export const DUMMY_DATA: { data: { portfolio: portfolioType } } = {
+export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
   "data": {
     "portfolio": {
       "buttons": [

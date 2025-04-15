@@ -6,7 +6,7 @@ import { portfolioType } from '@/helpers/types';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useLoadingStore } from '@/stores/LoadingStore';
-import { GlobalLoader } from '@/components/GlobaLoader';
+import { GlobalLoader } from '@/components/GlobalLoader';
 import Switcher from '@/components/Switcher';
 import Title from '@/components/Title';
 import ContactButtons from '@/components/ContactButtons';
@@ -68,8 +68,7 @@ export default function Home() {
     const getData = async () => {
       setIsLoading(true);
       const response = await getPortfolio();
-      // TODO: promise logic
-      setPortfolio(response.data.portfolio);
+      setPortfolio(response);
       setIsLoading(false);
     };
 
@@ -145,7 +144,7 @@ export default function Home() {
               className='mb-8 sticky z-20 top-10 p-1'
             />
             {showWeb && (
-              <div className='flex flex-row gap-8 items-center justify-center'>
+              <div className='flex flex-col sm:flex-row gap-8 items-center justify-center'>
                 <WebpageEmbed src='https://gyuben.com' />
                 <WebpageEmbed src='https://zsalyatal.hu' />
               </div>
