@@ -119,7 +119,7 @@ export default function Home() {
             </div>
             <ContactButtons buttons={portfolio.buttons} href={composeEmail} />
             <div
-              className='z-3 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
+              className='z-30 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
               onClick={() => scrollintoViewHandler('works')}
             >
               <p className='text-2xl animate-wiggle hover:animate-none'>works</p>
@@ -131,7 +131,7 @@ export default function Home() {
             className='relative min-h-[1024px] flex flex-col items-center mb-8'
           >
             <div
-              className='z-3 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
+              className='z-30 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
               onClick={() => scrollintoViewHandler('contact')}
             >
               <p className='-rotate-90 text-2xl -ml-2.5'>&gt;</p>
@@ -142,11 +142,12 @@ export default function Home() {
               state={showWeb}
               setState={setShowWeb}
               labels={['website', 'video']}
-              className='mb-8'
+              className='mb-8 sticky z-20 top-10 p-1'
             />
             {showWeb && (
-              <div className='flex flex-row items-center justify-center'>
+              <div className='flex flex-row gap-8 items-center justify-center'>
                 <WebpageEmbed src='https://gyuben.com' />
+                <WebpageEmbed src='https://zsalyatal.hu' />
               </div>
             )}
             {!showWeb && (

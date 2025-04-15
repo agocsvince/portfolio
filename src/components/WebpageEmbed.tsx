@@ -13,7 +13,7 @@ const WebpageEmbed = ({ src }: { src: string }) => {
       />
       <iframe
         src={src}
-        className="absolute rounded-[50px] z-2 top-0 p-3 overflow-hidden h-full w-full"
+        className="absolute rounded-[60px] z-2 top-0 p-4 overflow-hidden h-full w-full"
       ></iframe>
     </div>
   );
