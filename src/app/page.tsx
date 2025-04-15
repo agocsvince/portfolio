@@ -13,6 +13,7 @@ import ContactButtons from '@/components/ContactButtons';
 import WebpageEmbed from '@/components/WebpageEmbed';
 import PhotoAlbum from '@/components/PhotoAlbum';
 import VideoReel from '@/components/VideoReel';
+import Intro from '@/components/Intro';
 
 const emptyPortfolio = {
   buttons: [''],
@@ -119,7 +120,7 @@ export default function Home() {
               </div>
             </div>
             <ContactButtons buttons={portfolio.buttons} href={composeEmail} />
-            <p className='px-4 mt-10 lg:hidden block text-xs sm:text-sm opacity-80 whitespace-pre-line text-center'>{portfolio.intro}</p>
+            <Intro text={portfolio.intro} className='px-4 mt-10 lg:hidden block'/>
             <div
               className='z-30 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
               onClick={() => scrollintoViewHandler('works')}

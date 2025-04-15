@@ -1,5 +1,6 @@
 import { portfolioType } from '@/helpers/types'
 import React from 'react'
+import Intro from './Intro'
 
 const Title = ({text}: {text: Pick<portfolioType, 'preHeading' | 'heading' | 'postHeading' | 'intro'>}) => {
   return (
@@ -9,7 +10,7 @@ const Title = ({text}: {text: Pick<portfolioType, 'preHeading' | 'heading' | 'po
         <h2 className='text-xl sm:text-2xl'>{text.heading}</h2>
       </div>
       <h4 className='text-xs sm:text-base'>{text.postHeading}</h4>
-      <p className='px-4 mt-2 hidden lg:block text-xs sm:text-sm opacity-80 whitespace-pre-line'>{text.intro}</p>
+      <Intro text={text.intro} className='px-4 mt-2 hidden lg:block'/>
     </div>
   )
 }
