@@ -8,9 +8,8 @@ const VideoReel = ({ videos}: { videos: videoType[]}) => {
     {videos.map((video, index) => {
       return (
         <div key={video.id} className='relative flex flex-col gap-8'>
-          <EmbedVideo video={video} />
+          <EmbedVideo video={video} defaultInfoState={index===1} />
           {index !== videos.length - 1 && <hr />}
-          
         </div>
       );
     })}

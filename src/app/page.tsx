@@ -148,7 +148,8 @@ export default function Home() {
               className='mb-8 sticky z-20 top-10 p-1'
             />
             {showWeb && (
-              <div className='flex flex-col sm:flex-row gap-8 items-center justify-center'>
+              <div className='flex flex-col sm:flex-row gap-8 lg:gap-15 items-center justify-center'>
+                {/* TODO: add urls to API */}
                 <WebpageEmbed src='https://gyuben.com' />
                 <WebpageEmbed src='https://zsalyatal.hu' />
               </div>
@@ -165,7 +166,7 @@ export default function Home() {
           </div>
         </main>
         <footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'>
-          {/* FOOTER */}
+          {/* TODO: add footer with github, linkedIn and ...*/}
         </footer>
         <GlobalLoader />
       </div>

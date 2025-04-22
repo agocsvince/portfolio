@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import Loader from './Loader'
 import { formatDate } from '@/helpers/dateFormatter'
 
-const EmbedVideo = ({ video }: { video: videoType }) => {
+const EmbedVideo = ({ video, defaultInfoState = false }: { video: videoType, defaultInfoState: boolean }) => {
   const [isLoading, setIsLoading] = useState(true)
-  const [showInfo, setShowInfo] = useState(false);
+  const [showInfo, setShowInfo] = useState(defaultInfoState);
 
   return (
     <div className='relative h-full w-full aspect-video'  onClick={() => setShowInfo(!showInfo)}>
