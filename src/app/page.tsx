@@ -1,19 +1,16 @@
 'use client';
 
-import Button from '@/components/Button';
 import getPortfolio from '@/helpers/api';
 import { portfolioType } from '@/helpers/types';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useLoadingStore } from '@/stores/LoadingStore';
 import { GlobalLoader } from '@/components/GlobalLoader';
 import Switcher from '@/components/Switcher';
-import Title from '@/components/Title';
-import ContactButtons from '@/components/ContactButtons';
 import WebpageEmbed from '@/components/WebpageEmbed';
 import PhotoAlbum from '@/components/PhotoAlbum';
 import VideoReel from '@/components/VideoReel';
-import Intro from '@/components/Intro';
+import ContactSection from '@/components/ContactSection';
+import { scrollintoViewHandler } from '@/helpers/scrollHelper';
 
 const emptyPortfolio = {
   buttons: [''],
@@ -60,13 +57,6 @@ export default function Home() {
   const { setIsLoading } = useLoadingStore();
   const [showWeb, setShowWeb] = useState(true);
 
-  const titleProps = (({ preHeading, heading, postHeading, intro }) => ({
-    preHeading,
-    heading,
-    postHeading,
-    intro
-  }))(portfolio);
-
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true);
@@ -78,64 +68,19 @@ export default function Home() {
     getData();
   }, []);
 
-  const composeEmail = (title: string) => {
-    const email = portfolio.email;
-    const subject = `Hey, I need a ${title}`;
-    const body = 'I wanted to reach out to you regarding...';
-    return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
-  const scrollintoViewHandler = (target: string) => {
-    const element = document.getElementById(`${target}-section`);
-    element!.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
     !!portfolio.heading.length && (
       <div>
         <main className='min-h-[100vh] px-5 md:px-8 lg:px-15 w-full xl:px-120'>
           {/* MAIN */}
-          <div
-            id='contact-section'
-            className='flex flex-col items-center min-h-[100vh] pt-5 lg:pt-10'
-          >
-            <div className='gap-10 lg:gap-2 flex flex-row flex-wrap lg:flex-nowrap justify-between w-full mb-10'>
-              <Title text={titleProps} />
-              <div className='flex flex-col flex-1/3 items-center lg:items-end gap-6 lg:gap-15'>
-                <Button
-                  type='light'
-                  className='px-5 py-1 text-sm sm:text-base lg:text-lg max-w-[80%] break-all lg:break-normal'
-                  onClick={() => {}}
-                >
-                  <a href={composeEmail('...')}>{portfolio.email}</a>
-                </Button>
-                <Image
-                  className='max-w-[80%] md:h-auto'
-                  src={portfolio.portrait.url}
-                  priority
-                  width={275}
-                  height={340}
-                  alt='portait image'
-                />
-              </div>
-            </div>
-            <ContactButtons buttons={portfolio.buttons} href={composeEmail} />
-            <Intro text={portfolio.intro} className='px-4 mt-10 lg:hidden block'/>
-            <div
-              className='z-30 mt-8 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
-              onClick={() => scrollintoViewHandler('works')}
-            >
-              <p className='text-2xl animate-wiggle hover:animate-none'>works</p>
-              <p className='rotate-90 text-2xl -mr-1.5'>&gt;</p>
-            </div>
-          </div>
+          <ContactSection portfolio={portfolio} />
           <div
             id='works-section'
             className='relative min-h-[1024px] flex flex-col items-center mb-8'
           >
             <div
               className='z-30 flex flex-col gap-2 items-center mb-2 font-gothic cursor-pointer'
-              onClick={() => scrollintoViewHandler('contact')}
+              onClick={() => scrollintoViewHandler('contact-section')}
             >
               <p className='-rotate-90 text-2xl -ml-2.5'>&gt;</p>
               <p className='text-2xl animate-wiggle hover:animate-none delay-500'>contact</p>
