@@ -7,6 +7,7 @@ import { useLoadingStore } from '@/stores/LoadingStore';
 import { GlobalLoader } from '@/components/GlobalLoader';
 import ContactSection from '@/components/ContactSection';
 import WorksSection from '@/components/WorksSection';
+import Footer from '@/components/Footer';
 
 const emptyPortfolio = {
   buttons: [''],
@@ -77,9 +78,7 @@ export default function Home() {
           <ContactSection portfolio={portfolio} />
           <WorksSection portfolio={portfolio} />
         </main>
-        <footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'>
-          {/* TODO: add footer with github, linkedIn and ...*/}
-        </footer>
+        <Footer data={portfolio.footer} />
         <GlobalLoader />
       </div>
     )
