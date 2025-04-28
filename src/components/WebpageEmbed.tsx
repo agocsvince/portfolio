@@ -23,9 +23,9 @@ const WebpageEmbed = ({ src }: { src: string }) => {
           onLoadedData={() => setIsLoading(false)}
         ></iframe>
         {isLoading && <Loader className='!aspect-9/16 h-full p-4 rounded-[60px] !text-sm' />}
-        {/* TODO: add "Tech stack" description */}
+        {/* TODO: add "Tech stack" description and remove hidden from button */}
       </div>
-      <Button type={showInfo ? 'dark' : 'light'} className='px-5 py-1 text-sm sm:text-base' onClick={() => setShowInfo(!showInfo)}>{showInfo ? 'Hide tech-stack' : 'Show tech-stack'}</Button>
+      <Button type={showInfo ? 'dark' : 'light'} className='px-5 py-1 text-sm sm:text-base hidden' onClick={() => setShowInfo(!showInfo)}>{showInfo ? 'Hide tech-stack' : 'Show tech-stack'}</Button>
     </div>
   );
 };
