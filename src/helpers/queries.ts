@@ -1,38 +1,70 @@
+const portFolioId = 'cm94arbnbrz0a07uropv08eu4'
+
+export const videosQuery = `
+  videos(first: 10) {
+    id
+    description
+    type
+    title
+    url
+    asset {
+      fileName
+      url(transformation: {})
+      id
+      mimeType
+    }
+    date
+  }
+`
+
+export const photosQuery = `
+  photos(first: 10) {
+    fileName
+    id
+    url
+    width
+    height
+  }
+`
+
+export const footerQuery = `
+  footer {
+    linkedInUrl
+    portfolioGithub
+    githubProfile
+  }
+`
+
+export const webProjectsQuery = `
+  webProjects {
+    techStack
+    url
+    gitUrl
+  }
+`
+
+export const portraitQuery = `
+  portrait {
+    fileName
+    id
+    url
+  }
+`
+
 export const getPortfolioQuery = `
   query MyQuery {
-    portfolio(where: {id: "cm94arbnbrz0a07uropv08eu4"}) {
-      buttons
-      email
-      heading
-      postHeading
-      preHeading
-      intro
-      photos(first: 10) {
-        fileName
-        id
-        url
-        width
-        height
-      }
-      portrait {
-        fileName
-        id
-        url
-      }
-      videos(first: 10) {
-        id
-        date
-        description
-        type
-        title
-        url
-        asset {
-          fileName
-          url(transformation: {})
-          id
-          mimeType
-        }
-      }
-    }
+  portfolio(where: {id: "${portFolioId}"}) {
+    buttons
+    email
+    heading
+    postHeading
+    preHeading
+    ${photosQuery}
+    ${portraitQuery}
+    ${videosQuery}
+    intro
+    ${footerQuery}
+    ${webProjectsQuery}
   }
+}
 `;
