@@ -78,6 +78,7 @@ export default function Home() {
           <ContactSection portfolio={portfolio} />
           <WorksSection portfolio={portfolio} />
         </main>
+        {/* TODO: move footer into ClientLayout */}
         <Footer data={portfolio.footer} />
         <GlobalLoader />
       </div>

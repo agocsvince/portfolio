@@ -8,7 +8,6 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <GlobalLoader />
       {children}
-      <footer></footer>
     </div>
   );
 };
