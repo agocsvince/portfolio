@@ -49,9 +49,8 @@ const emptyPortfolio = {
   ],
   webProjects: [],
   footer: { 
-    linkedInUrl: '', 
-    portfolioGithub: '', 
-    githubProfile: '' 
+    links: [], 
+    copyrightText: ''
   },
 };
 

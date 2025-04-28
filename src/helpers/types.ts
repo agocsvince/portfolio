@@ -22,11 +22,15 @@ export type webProject = {
 }
 
 export type footerType = {
-  linkedInUrl: string;
-  portfolioGithub: string;
-  githubProfile: string;
+  links: linkType[],
+  copyrightText: string;
 }
 
+export type linkType = {
+  title: string;
+  url: string;
+  id: string;
+}
 export interface photoType extends assetType {
   height: number;
   width: number;

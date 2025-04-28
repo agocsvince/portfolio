@@ -29,9 +29,12 @@ export const photosQuery = `
 
 export const footerQuery = `
   footer {
-    linkedInUrl
-    portfolioGithub
-    githubProfile
+    links(first: 10) {
+      title
+      url
+      id
+    }
+    copyrightText
   }
 `
 

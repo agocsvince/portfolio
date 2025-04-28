@@ -148,9 +148,24 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
       ],
       "intro": "I'm a full-stack developer with a strong focus on front-end technologies like React, Next.js, and TypeScript. I thrive on solving problems through clean, well-structured code and intuitive user interfaces. Over the past few years, I’ve worked on a range of projects—from large-scale platforms to lean startup environments—often taking ownership of the entire development process.\n\nIn addition to coding, I have a deep passion for visual storytelling. I shoot and edit music videos, short films, and other creative video content, and I’m also experienced in photography. I enjoy bringing ideas to life—whether it's through code, camera, or a blend of both.",
       "footer": {
-        "linkedInUrl": "https://www.linkedin.com/in/vince-agC3B3cs-74b585221/",
-        "portfolioGithub": "https://github.com/agocsvince/portfolio",
-        "githubProfile": "https://github.com/agocsvince"
+        "links": [
+          {
+            "title": "Github profile",
+            "url": "https://github.com/agocsvince",
+            "id": "cma124mzmzj7z07w4jhn9m2h6"
+          },
+          {
+            "title": "Portfolio repository",
+            "url": "https://github.com/agocsvince/portfolio",
+            "id": "cma124mzmzj7y07w46udnjnmp"
+          },
+          {
+            "title": "LinkedIn profile",
+            "url": "https://www.linkedin.com/in/vince-agC3B3cs-74b585221/",
+            "id": "cma124mzmzj7x07w4y8wvn4w1"
+          }
+        ],
+        "copyrightText": "© 2025. All rights reserved."
       },
       "webProjects": [
         {
@@ -177,7 +192,7 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "Next.js",
             "React (Typescript)"
           ],
-          "url": "levendulapiknik.com",
+          "url": "https://levendulapiknik.com",
           "gitUrl": null,
           "id": "cma0vt4gkisrb07w4fnrbpg9c"
         }
