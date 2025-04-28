@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Loader from './Loader';
 import Button from './Button';
 
-const WebpageEmbed = ({ src }: { src: string }) => {
+const EmbedWebPage = ({ src }: { src: string }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [showInfo, setShowInfo] = useState(false)
 
@@ -30,4 +30,4 @@ const WebpageEmbed = ({ src }: { src: string }) => {
   );
 };
 
-export default WebpageEmbed;
+export default EmbedWebPage;

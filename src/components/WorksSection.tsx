@@ -2,7 +2,7 @@ import { scrollintoViewHandler } from '@/helpers/scrollHelper'
 import { portfolioType, webProject } from '@/helpers/types'
 import React, { useState } from 'react'
 import Switcher from './Switcher'
-import WebpageEmbed from './WebpageEmbed'
+import EmbedWebPage from './EmbedWebPage'
 import VideoReel from './VideoReel'
 import PhotoAlbum from './PhotoAlbum'
 
@@ -30,7 +30,7 @@ const WorksSection = ({portfolio}: {portfolio: portfolioType}) => {
       />
       {showWeb && (
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-15 items-center justify-center'>
-          {portfolio.webProjects.map((project: webProject) => <WebpageEmbed src={project.url} key={project.id}/>)}
+          {portfolio.webProjects.map((project: webProject) => <EmbedWebPage src={project.url} key={project.id}/>)}
         </div>
       )}
       {!showWeb && (
