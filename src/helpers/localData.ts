@@ -160,7 +160,8 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "React (Typescript)"
           ],
           "url": "https://gyuben.com",
-          "gitUrl": null
+          "gitUrl": null,
+          "id": "cma0vt4gmisrf07w4hei2z57m"
         },
         {
           "techStack": [
@@ -168,7 +169,8 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "Woocommerce"
           ],
           "url": "https://zsalyatal.hu",
-          "gitUrl": null
+          "gitUrl": null,
+          "id": "cma0vt4glisrd07w40aceybyp"
         },
         {
           "techStack": [
@@ -176,7 +178,8 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "React (Typescript)"
           ],
           "url": "levendulapiknik.com",
-          "gitUrl": null
+          "gitUrl": null,
+          "id": "cma0vt4gkisrb07w4fnrbpg9c"
         }
       ]
     }

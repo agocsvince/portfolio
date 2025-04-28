@@ -18,6 +18,7 @@ export type webProject = {
   url: string;
   gitUrl: string | null;
   techStack: string[];
+  id: string;
 }
 
 export type footerType = {

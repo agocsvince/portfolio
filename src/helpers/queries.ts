@@ -40,6 +40,7 @@ export const webProjectsQuery = `
     techStack
     url
     gitUrl
+    id
   }
 `
 
