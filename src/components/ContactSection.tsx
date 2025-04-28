@@ -32,7 +32,7 @@ const ContactSection = ({portfolio}: {portfolio: portfolioType}) => {
         <div className='flex flex-col flex-1/3 items-center lg:items-end gap-6 lg:gap-15'>
           <Button
             type='light'
-            className='px-5 py-1 text-sm sm:text-base lg:text-lg max-w-[80%] break-all lg:break-normal'
+            className='px-5 py-1 text-sm sm:text-base max-w-[80%] break-all lg:break-normal'
             onClick={() => {}}
           >
             <a href={composeEmail('...')}>{portfolio.email}</a>

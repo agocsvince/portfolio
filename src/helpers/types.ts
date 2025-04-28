@@ -10,7 +10,21 @@ export type portfolioType = {
   portrait: assetType;
   photos: photoType[];
   videos: videoType[];
+  webProjects: webProject[];
+  footer: footerType;
 };
+
+export type webProject = {
+  url: string;
+  gitUrl: string | null;
+  techStack: string[];
+}
+
+export type footerType = {
+  linkedInUrl: string;
+  portfolioGithub: string;
+  githubProfile: string;
+}
 
 export interface photoType extends assetType {
   height: number;
