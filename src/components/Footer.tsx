@@ -8,7 +8,7 @@ const Footer = ({data}: {data: footerType}) => {
       <div className='flex flex-col sm:flex-row gap-3 sm:gap-10 text-center'>
         {(Object.keys(data) as Array<keyof typeof data>).map((url, index) => { 
 
-          return <a href={data[url]} className='opacity-70 hover:opacity-100 underline' key={index}>{url}</a>})}
+          return <a href={data[url]} target='_blank' className='opacity-70 hover:opacity-100 underline' key={index}>{url}</a>})}
       </div>
       <span className='opacity-70'>© 2025. All rights reserved.</span>
     </footer>
