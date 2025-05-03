@@ -18,12 +18,16 @@ export const videosQuery = `
 `
 
 export const photosQuery = `
-  photos(first: 10) {
-    fileName
+ photos(first: 10) {
     id
-    url
-    width
-    height
+    alt
+    asset {
+      width
+      url
+      fileName
+      height
+    }
+    title
   }
 `
 

@@ -31,9 +31,11 @@ export type linkType = {
   url: string;
   id: string;
 }
-export interface photoType extends assetType {
-  height: number;
-  width: number;
+export interface photoType {
+  asset: assetType & { width: number; height: number;}
+  alt: string;
+  title: string;
+  id: string;
 }
 
 export interface videoType {
@@ -48,10 +50,9 @@ export interface videoType {
 
 export type assetType = {
   fileName: string;
-  id: string;
+  id?: string;
   url: string;
   mimeType?: string;
-  alt?: string;
 };
 
 type switchColorType =

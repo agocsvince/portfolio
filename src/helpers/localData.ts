@@ -13,74 +13,114 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
       "preHeading": "Hi, my name is Vince",
       "photos": [
         {
-          "fileName": "000046590015.jpg",
-          "id": "cm94atjbfs5xb07teuf921t8t",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/g5608aeoSUCpXSQyCVBp",
-          "width": 4492,
-          "height": 6774
+          "id": "cma8mck5ae4sd07unbwicqff6",
+          "alt": "Gyuris at Andrássy street",
+          "asset": {
+            "width": 4492,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/g5608aeoSUCpXSQyCVBp",
+            "fileName": "000046590015.jpg",
+            "height": 6774
+          },
+          "title": "Gyuris at Andrássy street - Levendula Piknik"
         },
         {
-          "fileName": "000046590027.jpg",
-          "id": "cm94atjass5x207terc4qc1tj",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/edN9NbtBR9eyo4b0QN3n",
-          "width": 4492,
-          "height": 6774
+          "id": "cma8mck59e4sb07unqb45pob1",
+          "alt": "Fresh tattoo of a bee with a statue of a naked woman in the background",
+          "asset": {
+            "width": 4492,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/edN9NbtBR9eyo4b0QN3n",
+            "fileName": "000046590027.jpg",
+            "height": 6774
+          },
+          "title": "Fresh tattoo - Levendula Piknik"
         },
         {
-          "fileName": "62370032.jpeg",
-          "id": "cm94atja9s33u07w2ey8trh96",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/AkRQvYDmS2qNmKG0ffOj",
-          "width": 2046,
-          "height": 3090
+          "id": "cma8mck59e4s907unmdfgavwl",
+          "alt": "Bag left alone on the streets of Budapest",
+          "asset": {
+            "width": 2046,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/AkRQvYDmS2qNmKG0ffOj",
+            "fileName": "62370032.jpeg",
+            "height": 3090
+          },
+          "title": "LP bag left alone - Levendula Piknik"
         },
         {
-          "fileName": "000046590021.jpeg",
-          "id": "cm94atja4s0qo07urow7z2bwv",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/4mEfILEcQlqrTc2Xj8uW",
-          "width": 6774,
-          "height": 4492
+          "id": "cma8mck58e4s707unulhefc1f",
+          "alt": "Patchwork denims on multiple people laying on the couch",
+          "asset": {
+            "width": 6774,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/4mEfILEcQlqrTc2Xj8uW",
+            "fileName": "000046590021.jpeg",
+            "height": 4492
+          },
+          "title": "STOTZ patchworks - Levendula Piknik"
         },
         {
-          "fileName": "62370029.jpeg",
-          "id": "cm94atjbhs5xe07te3545jjl8",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/fjKeH8mSLej3i4lISoIg",
-          "width": 3091,
-          "height": 2048
+          "id": "cma8mck58e4s507unkv9shun5",
+          "alt": "Bag on shoulder with mountains wallpaper behind",
+          "asset": {
+            "width": 3091,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/fjKeH8mSLej3i4lISoIg",
+            "fileName": "62370029.jpeg",
+            "height": 2048
+          },
+          "title": "LP bag at Nyolc és fél - Levendula Piknik"
         },
         {
-          "fileName": "000048260023.jpeg",
-          "id": "cm94atjbcs5x607tet8yx6l8c",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/iTUwNCqBRR6OBSa0xMfK",
-          "width": 1536,
-          "height": 2316
+          "id": "cma8mt08rhnsy07uug85vryly",
+          "alt": "Artist between the curtains",
+          "asset": {
+            "width": 1536,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/iTUwNCqBRR6OBSa0xMfK",
+            "fileName": "000048260023.jpeg",
+            "height": 2316
+          },
+          "title": "Gyuris pre-show moments at Akvárium"
         },
         {
-          "fileName": "img016.jpg",
-          "id": "cm96umdus25fu08w4xv7qrw0y",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/QH2sc6TTVyuaWoONb7WA",
-          "width": 2812,
-          "height": 4352
+          "id": "cma8mt08qhnsw07uuhpmx0itl",
+          "alt": "Artist behind the stage",
+          "asset": {
+            "width": 2812,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/QH2sc6TTVyuaWoONb7WA",
+            "fileName": "img016.jpg",
+            "height": 4352
+          },
+          "title": "Susa behind the stage at Akvárium"
         },
         {
-          "fileName": "000048260020.jpeg",
-          "id": "cm94atja8s0qs07urzcinliq3",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/QyaCc22tT0atF5OT0qmL",
-          "width": 1536,
-          "height": 2316
+          "id": "cma8mt08phnsu07uu0kst5sqp",
+          "alt": "Dancers and artist between the curtains",
+          "asset": {
+            "width": 1536,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/QyaCc22tT0atF5OT0qmL",
+            "fileName": "000048260020.jpeg",
+            "height": 2316
+          },
+          "title": "Gyuris and Willany leó dancers at Akvárium"
         },
         {
-          "fileName": "img028.jpg",
-          "id": "cm94atjays33y07w2u9mddlj3",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/6pvdUnb8RtCY6dkmQ3Pe",
-          "width": 4236,
-          "height": 2845
+          "id": "cma8mt08ohnss07uugocg5ysg",
+          "alt": "Abstract fence and wall",
+          "asset": {
+            "width": 4236,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/6pvdUnb8RtCY6dkmQ3Pe",
+            "fileName": "img028.jpg",
+            "height": 2845
+          },
+          "title": "Practicing abstract compositions"
         },
         {
-          "fileName": "img026-2.jpg",
-          "id": "cm96ui0ww1r8808w4fbgygl91",
-          "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/RTpYUInySaS5T6jz10Tx",
-          "width": 4231,
-          "height": 2854
+          "id": "cma8mt08nhnsq07uu220idg9r",
+          "alt": "People standing mirrored from a puddle",
+          "asset": {
+            "width": 4231,
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/RTpYUInySaS5T6jz10Tx",
+            "fileName": "img026-2.jpg",
+            "height": 2854
+          },
+          "title": "A glimpse of my friends from the puddle - Levendula Piknik"
         }
       ],
       "portrait": {
@@ -89,6 +129,20 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
         "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/mwyqI5LAT3CVgAvCUTJY"
       },
       "videos": [
+        {
+          "id": "cm9ihw37lstoo07ta5iu8xfky",
+          "description": "This visual is the first piece in a series accompanying the 4-track 2310 EP. Set in Kain’s (and my own) hometown, the story unfolds through everyday scenes that transport the viewer back into the artist’s childhood memories.\n\nThe artist reflects on what it was like to confront his former self, the ingrained patterns shaped by his hometown, and the journey that led him to relive and ultimately transform those memories.",
+          "type": "Music Video",
+          "title": "Kain - Mostanában",
+          "url": "https://youtu.be/UZlqhnq30yIsiTSMRxietoqSKibC-",
+          "asset": {
+            "fileName": "Kain - Mostanában.mp4",
+            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/RA8BDD1FRnOobOCw2Vc4",
+            "id": "cm97jx3hks10208upc7zdaxkw",
+            "mimeType": "video/mp4"
+          },
+          "date": "2025-02-22"
+        },
         {
           "id": "cm97inoq0qsm808upau9o9nzw",
           "description": "The second visual from Kain’s 4-track 2310 EP offers a glimpse into the quiet beauty of his newfound home and surroundings. We spent an entire day wandering the peaceful streets of Buda — more specifically, Újbuda.\n\nThe listener gently drifts through the emotional landscape inspired by this new home — just like the artist himself. We follow him through a calm, laid-back day as he explores the neighborhood, reflects in silence, and moves forward with a deep sense of gratitude for the path that brought him here.",
@@ -130,25 +184,16 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "mimeType": "video/mp4"
           },
           "date": "2025-03-07"
-        },
-        {
-          "id": "cm9ihw37lstoo07ta5iu8xfky",
-          "description": "This visual is the first piece in a series accompanying the 4-track 2310 EP. Set in Kain’s (and my own) hometown, the story unfolds through everyday scenes that transport the viewer back into the artist’s childhood memories.\n\nThe artist reflects on what it was like to confront his former self, the ingrained patterns shaped by his hometown, and the journey that led him to relive and ultimately transform those memories.",
-          "type": "Music Video",
-          "title": "Kain - Mostanában",
-          "url": "https://youtu.be/UZlqhnq30yIsiTSMRxietoqSKibC-",
-          "asset": {
-            "fileName": "Kain - Mostanában.mp4",
-            "url": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/RA8BDD1FRnOobOCw2Vc4",
-            "id": "cm97jx3hks10208upc7zdaxkw",
-            "mimeType": "video/mp4"
-          },
-          "date": "2025-02-22"
         }
       ],
       "intro": "I'm a full-stack developer with a strong focus on front-end technologies like React, Next.js, and TypeScript. I thrive on solving problems through clean, well-structured code and intuitive user interfaces. Over the past few years, I’ve worked on a range of projects—from large-scale platforms to lean startup environments—often taking ownership of the entire development process.\n\nIn addition to coding, I have a deep passion for visual storytelling. I shoot and edit music videos, short films, and other creative video content, and I’m also experienced in photography. I enjoy bringing ideas to life—whether it's through code, camera, or a blend of both.",
       "footer": {
         "links": [
+          {
+            "title": "LinkedIn profile",
+            "url": "https://www.linkedin.com/in/vince-agC3B3cs-74b585221/",
+            "id": "cma124mzmzj7x07w4y8wvn4w1"
+          },
           {
             "title": "Github profile",
             "url": "https://github.com/agocsvince",
@@ -158,11 +203,6 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "title": "Portfolio repository",
             "url": "https://github.com/agocsvince/portfolio",
             "id": "cma124mzmzj7y07w46udnjnmp"
-          },
-          {
-            "title": "LinkedIn profile",
-            "url": "https://www.linkedin.com/in/vince-agC3B3cs-74b585221/",
-            "id": "cma124mzmzj7x07w4y8wvn4w1"
           }
         ],
         "copyrightText": "© 2025. All rights reserved."

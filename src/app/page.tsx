@@ -30,6 +30,16 @@ const emptyPortfolio = {
       url: '',
       width: 0,
       height: 0,
+      alt: '',
+      title: '',
+      asset: {
+        fileName: '',
+        id: '',
+        url: '',
+        mimeType: '',
+        width: 0,
+        height: 0,
+      },
     },
   ],
   videos: [

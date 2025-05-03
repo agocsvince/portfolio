@@ -9,18 +9,21 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
   return (
     <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary'>
-      <PhotoProvider>
+      <PhotoProvider
+        toolbarRender={({ index }) => {
+          return <span className="PhotoView-Slider__toolbarIcon" >{photos[index].title}</span>;
+      }}>
         {photos.map((photo) => (
             <div
               key={photo.id}
-              className={`${photo.width > photo.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'} flex flex-col gap-4`}
+              className={`${photo.asset.width > photo.asset.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'} flex flex-col gap-4`}
             >
-              <PhotoView src={photo.url}>
+              <PhotoView src={photo.asset.url}>
                 <Image
-                  src={photo.url}
-                  alt={`Photo of ${photo.fileName}`}
-                  width={photo.width}
-                  height={photo.height}
+                  src={photo.asset.url}
+                  alt={photo.alt}
+                  width={photo.asset.width}
+                  height={photo.asset.height}
                 />
                 {/* TODO: add image description */}
               </PhotoView>
