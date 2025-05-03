@@ -27,7 +27,6 @@ const EmbedWebPage = ({ project }: { project: webProject }) => {
           onLoadedData={() => setIsLoading(false)}
         ></iframe>
         {isLoading && <Loader className='!aspect-9/16 h-full p-4 rounded-[60px] !text-sm' />}
-        {/* TODO: add "Tech stack" description and remove hidden from button */}
         {showInfo && <TechStackInfo data={project.techStack} />}        
       </div>
     </div>
