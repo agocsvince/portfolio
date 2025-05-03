@@ -21,6 +21,18 @@ export const metadata: Metadata = {
   description: 'Vince Agocs web developer & videographer based in Budapest',
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vince Agocs",
+  "jobTitle": "Web developer & videographer",
+  "url": "https://agocsvince.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/vince-ag%C3%B3cs-74b585221/",
+    "https://github.com/agocsvince"
+  ]
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +45,10 @@ export default function RootLayout({
         <meta property="og:url" content="https://agocsvince.com" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://agocsvince.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </Head>
       <body
         className={`${dotGothic.variable} ${geistMono.variable} antialiased`}
