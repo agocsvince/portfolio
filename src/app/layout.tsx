@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { DotGothic16, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import ClientLayout from '@/components/ClientLayout';
-import Head from 'next/head';
 
 const dotGothic = DotGothic16({
   subsets: ['latin'],
@@ -23,14 +22,24 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Vince Agocs",
+  "@type": "CreativeWork",
+  "name": "Vince Agocs's portfolio",
+  "description": "Vince Agocs web developer & videographer based in Budapest",
   "jobTitle": "Web developer & videographer",
+  "image": "https://eu-central-1-shared-euc1-02.graphassets.com/AqQPMidZHRjK0BXidcGVez/mwyqI5LAT3CVgAvCUTJY",
   "url": "https://agocsvince.com",
   "sameAs": [
     "https://www.linkedin.com/in/vince-ag%C3%B3cs-74b585221/",
     "https://github.com/agocsvince"
-  ]
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Vince Agocs"
+  },
 }
 
 export default function RootLayout({
@@ -40,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         <meta property="og:image" content="https://agocsvince.com/og_image.jpg" />
         <meta property="og:url" content="https://agocsvince.com" />
         <meta property="og:type" content="website" />
@@ -49,7 +58,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </Head>
+      </head>
       <body
         className={`${dotGothic.variable} ${geistMono.variable} antialiased`}
       >
