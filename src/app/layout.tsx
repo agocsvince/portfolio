@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { DotGothic16, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import ClientLayout from '@/components/ClientLayout';
+import Head from 'next/head';
 
 const dotGothic = DotGothic16({
   subsets: ['latin'],
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Vince Agocs's portfolio",
-  description: 'Vince Agocs web developer & videographer',
+  description: 'Vince Agocs web developer & videographer based in Budapest',
 };
 
 export default function RootLayout({
@@ -27,6 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta property="og:image" content="https://agocsvince.com/og_image.jpg" />
+        <meta property="og:url" content="https://agocsvince.com" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://agocsvince.com" />
+      </Head>
       <body
         className={`${dotGothic.variable} ${geistMono.variable} antialiased`}
       >
