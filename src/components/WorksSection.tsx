@@ -1,6 +1,6 @@
 import { scrollintoViewHandler } from '@/helpers/scrollHelper'
 import { portfolioType, webProject } from '@/helpers/types'
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import Switcher from './Switcher'
 import EmbedWebPage from './EmbedWebPage'
 import VideoReel from './VideoReel'
@@ -46,4 +46,4 @@ const WorksSection = ({portfolio}: {portfolio: portfolioType}) => {
   )
 }
 
-export default WorksSection
+export default memo(WorksSection);

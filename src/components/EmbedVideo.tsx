@@ -1,5 +1,5 @@
 import { videoType } from '@/helpers/types'
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import Loader from './Loader'
 import { formatDate } from '@/helpers/dateFormatter'
 
@@ -33,4 +33,4 @@ const EmbedVideo = ({ video, defaultInfoState = false }: { video: videoType, def
   )
 }
 
-export default EmbedVideo
+export default memo(EmbedVideo);

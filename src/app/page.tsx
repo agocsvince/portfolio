@@ -6,8 +6,10 @@ import { useEffect, useState } from 'react';
 import { useLoadingStore } from '@/stores/LoadingStore';
 import { GlobalLoader } from '@/components/GlobalLoader';
 import ContactSection from '@/components/ContactSection';
-import WorksSection from '@/components/WorksSection';
 import Footer from '@/components/Footer';
+import dynamic from 'next/dynamic';
+
+const WorksSection = dynamic(() => import('@/components/WorksSection'));
 
 const emptyPortfolio = {
   buttons: [''],

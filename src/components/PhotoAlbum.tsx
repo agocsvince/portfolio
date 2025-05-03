@@ -1,6 +1,6 @@
 import { photoType } from '@/helpers/types';
 import Image from 'next/image';
-import React from 'react'
+import React, { memo } from 'react'
 
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
@@ -22,6 +22,7 @@ const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
                   width={photo.width}
                   height={photo.height}
                 />
+                {/* TODO: add image description */}
               </PhotoView>
             </div>
           ))}
@@ -30,4 +31,4 @@ const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
   )
 }
 
-export default PhotoAlbum
+export default memo(PhotoAlbum);

@@ -1,5 +1,5 @@
 import { videoType } from '@/helpers/types';
-import React from 'react'
+import React, { memo } from 'react'
 import EmbedVideo from './EmbedVideo';
 
 const VideoReel = ({ videos}: { videos: videoType[]}) => {
@@ -17,4 +17,4 @@ const VideoReel = ({ videos}: { videos: videoType[]}) => {
   )
 }
 
-export default VideoReel
+export default memo(VideoReel);

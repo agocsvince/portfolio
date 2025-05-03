@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import Loader from './Loader';
 import Button from './Button';
 
@@ -30,4 +30,4 @@ const EmbedWebPage = ({ src }: { src: string }) => {
   );
 };
 
-export default EmbedWebPage;
+export default memo(EmbedWebPage);
