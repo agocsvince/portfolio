@@ -2,12 +2,17 @@ import { scrollintoViewHandler } from '@/helpers/scrollHelper'
 import { portfolioType, webProject } from '@/helpers/types'
 import React, { memo, useState } from 'react'
 import Switcher from './Switcher'
-import EmbedWebPage from './EmbedWebPage'
-import VideoReel from './VideoReel'
-import PhotoAlbum from './PhotoAlbum'
+import dynamic from 'next/dynamic'
+import { useSearchParams } from 'next/navigation'
+
+const EmbedWebPage = dynamic(() => import('./EmbedWebPage'))
+const VideoReel = dynamic(() => import('./VideoReel'))
+const PhotoAlbum = dynamic(() => import('./PhotoAlbum'))
 
 const WorksSection = ({portfolio}: {portfolio: portfolioType}) => {
-  const [showWeb, setShowWeb] = useState(true);
+  const params = useSearchParams()
+  const defaultState = params.get('type') !== 'video'
+  const [showWeb, setShowWeb] = useState(defaultState);
 
   return (
     <div
@@ -21,27 +26,22 @@ const WorksSection = ({portfolio}: {portfolio: portfolioType}) => {
         <p className='-rotate-90 text-2xl -ml-2.5'>&gt;</p>
         <p className='text-2xl animate-wiggle hover:animate-none delay-500'>contact</p>
       </div>
-      {/* WORKS SECTION */}
       <Switcher
         state={showWeb}
         setState={setShowWeb}
         labels={['website', 'video']}
         className='mb-8 sticky z-20 top-10 p-1'
       />
-      {showWeb && (
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-15 items-center justify-center'>
-          {portfolio.webProjects.map((project: webProject) => <EmbedWebPage project={project} key={project.id}/>)}
+      <div className={`${showWeb ? 'grid' : 'hidden'} grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-15 items-center justify-center`}>
+        {portfolio.webProjects.map((project: webProject) => <EmbedWebPage project={project} key={project.id}/>)}
+      </div>
+      <div className={`${!showWeb ? 'flex' : 'hidden'} flex-row items-center justify-center`}>
+        <div className='flex flex-col gap-8'>
+          <VideoReel videos={portfolio.videos} />
+          {!!portfolio.photos.length && <hr />}
+          <PhotoAlbum photos={portfolio.photos}/>
         </div>
-      )}
-      {!showWeb && (
-        <div className='lex flex-row items-center justify-center'>
-          <div className='flex flex-col gap-8'>
-            <VideoReel videos={portfolio.videos} />
-            {!!portfolio.photos.length && <hr />}
-            <PhotoAlbum photos={portfolio.photos}/>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   )
 }

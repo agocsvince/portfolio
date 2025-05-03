@@ -7,9 +7,7 @@ import { useLoadingStore } from '@/stores/LoadingStore';
 import { GlobalLoader } from '@/components/GlobalLoader';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import dynamic from 'next/dynamic';
-
-const WorksSection = dynamic(() => import('@/components/WorksSection'));
+import WorksSection from '@/components/WorksSection';
 
 const emptyPortfolio = {
   buttons: [''],
