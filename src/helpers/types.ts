@@ -51,6 +51,7 @@ export type assetType = {
   id: string;
   url: string;
   mimeType?: string;
+  alt?: string;
 };
 
 type switchColorType =

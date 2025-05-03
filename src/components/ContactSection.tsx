@@ -43,7 +43,7 @@ const ContactSection = ({portfolio}: {portfolio: portfolioType}) => {
             priority
             width={275}
             height={340}
-            alt='portait image'
+            alt={portfolio.portrait.alt || 'portait image of Vince Agocs'}
           />
         </div>
       </div>
