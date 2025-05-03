@@ -30,7 +30,7 @@ const WorksSection = ({portfolio}: {portfolio: portfolioType}) => {
       />
       {showWeb && (
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-15 items-center justify-center'>
-          {portfolio.webProjects.map((project: webProject) => <EmbedWebPage src={project.url} key={project.id}/>)}
+          {portfolio.webProjects.map((project: webProject) => <EmbedWebPage project={project} key={project.id}/>)}
         </div>
       )}
       {!showWeb && (

@@ -85,7 +85,6 @@ export default function Home() {
     !!portfolio.heading.length && (
       <div>
         <main className='min-h-[100vh] px-5 md:px-8 lg:px-15 w-full xl:px-120'>
-          {/* MAIN */}
           <ContactSection portfolio={portfolio} />
           <WorksSection portfolio={portfolio} />
         </main>

@@ -2,13 +2,16 @@ import Image from 'next/image';
 import React, { memo, useState } from 'react';
 import Loader from './Loader';
 import Button from './Button';
+import { webProject } from '@/helpers/types';
+import TechStackInfo from './TechStackInfo';
 
-const EmbedWebPage = ({ src }: { src: string }) => {
+const EmbedWebPage = ({ project }: { project: webProject }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [showInfo, setShowInfo] = useState(false)
 
   return (
     <div className='flex flex-col items-center gap-2'>
+      <Button type={showInfo ? 'dark' : 'light'} className='px-5 py-1 text-sm sm:text-base' onClick={() => setShowInfo(!showInfo)}>{showInfo ? 'Hide tech-stack' : 'Show tech-stack'}</Button>
       <div className='relative max-w-[400px] flex flex-col items-center'>
         <Image
           src={'/iPhone_border.png'}
@@ -18,15 +21,15 @@ const EmbedWebPage = ({ src }: { src: string }) => {
           className='relative z-2'
         />
         <iframe
-          src={src}
-          title={src}
+          src={project.url}
+          title={project.url}
           className='absolute rounded-[60px] z-2 top-0 p-4 overflow-hidden h-full w-full'
           onLoadedData={() => setIsLoading(false)}
         ></iframe>
         {isLoading && <Loader className='!aspect-9/16 h-full p-4 rounded-[60px] !text-sm' />}
         {/* TODO: add "Tech stack" description and remove hidden from button */}
+        {showInfo && <TechStackInfo data={project.techStack} />}        
       </div>
-      <Button type={showInfo ? 'dark' : 'light'} className='px-5 py-1 text-sm sm:text-base hidden' onClick={() => setShowInfo(!showInfo)}>{showInfo ? 'Hide tech-stack' : 'Show tech-stack'}</Button>
     </div>
   );
 };
