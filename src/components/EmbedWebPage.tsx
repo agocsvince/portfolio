@@ -19,6 +19,7 @@ const EmbedWebPage = ({ src }: { src: string }) => {
         />
         <iframe
           src={src}
+          title={src}
           className='absolute rounded-[60px] z-2 top-0 p-4 overflow-hidden h-full w-full'
           onLoadedData={() => setIsLoading(false)}
         ></iframe>
