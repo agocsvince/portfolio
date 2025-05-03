@@ -32,7 +32,7 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "fileName": "000046590027.jpg",
             "height": 6774
           },
-          "title": "Fresh tattoo - Levendula Piknik"
+          "title": "Fresh bee - Levendula Piknik"
         },
         {
           "id": "cma8mck59e4s907unmdfgavwl",
@@ -98,7 +98,7 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "fileName": "000048260020.jpeg",
             "height": 2316
           },
-          "title": "Gyuris and Willany leó dancers at Akvárium"
+          "title": "Gyuris and Willany Leó dancers at Akvárium"
         },
         {
           "id": "cma8mt08ohnss07uugocg5ysg",
@@ -120,7 +120,7 @@ export const LOCAL_DATA: { data: { portfolio: portfolioType } } = {
             "fileName": "img026-2.jpg",
             "height": 2854
           },
-          "title": "A glimpse of my friends from the puddle - Levendula Piknik"
+          "title": "A glimpse of my friends - Levendula Piknik"
         }
       ],
       "portrait": {
