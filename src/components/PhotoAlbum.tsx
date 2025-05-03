@@ -7,12 +7,14 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 
 const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
+  const showPhotoTitle = ({ index }: {index: number}) => {
+    return <span className="PhotoView-Slider__toolbarIcon" >{photos[index].title}</span>
+  }
+
   return (
     <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary'>
       <PhotoProvider
-        toolbarRender={({ index }) => {
-          return <span className="PhotoView-Slider__toolbarIcon" >{photos[index].title}</span>;
-      }}>
+        toolbarRender={showPhotoTitle}>
         {photos.map((photo) => (
             <div
               key={photo.id}
@@ -25,7 +27,6 @@ const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
                   width={photo.asset.width}
                   height={photo.asset.height}
                 />
-                {/* TODO: add image description */}
               </PhotoView>
             </div>
           ))}
