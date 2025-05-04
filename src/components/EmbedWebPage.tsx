@@ -18,13 +18,13 @@ const EmbedWebPage = ({ project }: { project: webProject }) => {
           alt='iPhone border'
           width={425}
           height={855}
-          className='relative z-3'
+          className='relative z-2'
         />
         {showInfo && <TechStackInfo data={project.techStack} />}        
         <iframe
           src={project.url}
           title={project.url}
-          className='absolute rounded-[60px] z-1 top-0 p-4 overflow-hidden h-full w-full'
+          className='absolute rounded-[60px] z-2 top-0 p-4 overflow-hidden h-full w-full'
           onLoadedData={() => setIsLoading(false)}
         ></iframe>
         {isLoading && <Loader className='!aspect-9/16 h-full p-4 rounded-[60px] !text-sm' />}
