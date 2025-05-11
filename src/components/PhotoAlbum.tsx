@@ -12,7 +12,7 @@ const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
   }
 
   return (
-    <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary'>
+    <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary max-w-full'>
       <PhotoProvider
         toolbarRender={showPhotoTitle}>
         {photos.map((photo) => (
