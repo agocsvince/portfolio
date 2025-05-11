@@ -18,7 +18,7 @@ export const videosQuery = `
 `
 
 export const photosQuery = `
- photos(first: 10) {
+ photos(first: 20) {
     id
     alt
     asset {
