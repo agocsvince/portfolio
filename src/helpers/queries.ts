@@ -1,7 +1,7 @@
 const portFolioId = 'cm94arbnbrz0a07uropv08eu4'
 
 export const videosQuery = `
-  videos(first: 10) {
+  videos(first: 20, orderBy: date_DESC) {
     id
     description
     type
@@ -18,7 +18,7 @@ export const videosQuery = `
 `
 
 export const photosQuery = `
- photos(first: 20) {
+ photos(first: 30) {
     id
     alt
     asset {

@@ -27,7 +27,7 @@ const EmbedWebPage = ({ project }: { project: webProject }) => {
           className='absolute rounded-[60px] z-2 top-0 p-4 overflow-hidden h-full w-full'
           onLoadedData={() => setIsLoading(false)}
         ></iframe>
-        {isLoading && <Loader className='!aspect-9/16 h-full p-4 rounded-[60px] !text-sm' />}
+        {isLoading && <Loader className='p-4 rounded-[60px] !text-sm' />}
       </div>
     </div>
   );

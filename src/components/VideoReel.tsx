@@ -2,7 +2,7 @@ import { videoType } from '@/helpers/types';
 import React, { memo } from 'react'
 import EmbedVideo from './EmbedVideo';
 
-const VideoReel = ({ videos}: { videos: videoType[]}) => {
+const VideoReel = ({ videos }: { videos: videoType[]}) => {
 
   return (<>
     {videos.map((video, index) => {

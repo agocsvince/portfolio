@@ -12,20 +12,20 @@ const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
   }
 
   return (
-    <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary max-w-full'>
+    <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary'>
       <PhotoProvider
         toolbarRender={showPhotoTitle}>
         {photos.map((photo) => (
             <div
               key={photo.id}
-              className={`${photo.asset.width > photo.asset.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'} flex flex-col gap-4 max-w-full`}
+              className={`${photo.asset.width > photo.asset.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'} flex flex-col gap-4 `}
             >
               <PhotoView src={photo.asset.url}>
                 <Image
                   src={photo.asset.url}
-                  alt={photo.alt}
-                  width={photo.asset.width}
-                  height={photo.asset.height}
+                  alt={photo.alt || "Photo"}
+                  width={photo.asset.width || 0}
+                  height={photo.asset.height || 0}
                 />
               </PhotoView>
             </div>
