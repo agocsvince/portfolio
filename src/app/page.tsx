@@ -58,9 +58,9 @@ const emptyPortfolio = {
     },
   ],
   webProjects: [],
-  footer: { 
-    links: [], 
-    copyrightText: ''
+  footer: {
+    links: [],
+    copyrightText: '',
   },
 };
 
@@ -82,7 +82,7 @@ export default function Home() {
   return (
     !!portfolio.heading.length && (
       <div>
-        <main className='min-h-[100vh] px-5 md:px-8 lg:px-15 w-full xl:px-80'>
+        <main className="min-h-[100vh] px-5 md:px-8 lg:px-15 w-full xl:px-40">
           <ContactSection portfolio={portfolio} />
           <WorksSection portfolio={portfolio} />
         </main>
