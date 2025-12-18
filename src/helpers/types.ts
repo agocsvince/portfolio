@@ -19,20 +19,20 @@ export type webProject = {
   gitUrl: string | null;
   techStack: string[];
   id: string;
-}
+};
 
 export type footerType = {
-  links: linkType[],
+  links: linkType[];
   copyrightText: string;
-}
+};
 
 export type linkType = {
   title: string;
   url: string;
   id: string;
-}
+};
 export interface photoType {
-  asset: assetType & { width: number; height: number;}
+  asset: assetType & { width: number; height: number };
   alt: string;
   title: string;
   id: string;
@@ -70,4 +70,5 @@ export type switcherPropsType<T> = {
   labels: [string, string];
   color?: switchColorType;
   className?: string;
+  disabled?: boolean;
 };

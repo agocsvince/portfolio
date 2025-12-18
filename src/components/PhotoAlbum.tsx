@@ -1,21 +1,25 @@
 import { photoType } from '@/helpers/types';
 import Image from 'next/image';
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
-
-const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
-  const showPhotoTitle = ({ index }: {index: number}) => {
-    return <span className="PhotoView-Slider__toolbarIcon" >{photos[index].title}</span>
-  }
+const PhotoAlbum = ({ photos }: { photos: photoType[] }) => {
+  const showPhotoTitle = ({ index }: { index: number }) => {
+    return (
+      <span className="PhotoView-Slider__toolbarIcon">
+        {photos[index].title}
+      </span>
+    );
+  };
 
   return (
-    <div className='flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary'>
-      <PhotoProvider
-        toolbarRender={showPhotoTitle}>
-        {photos.map((photo) => (
+    <div className="flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary">
+      <PhotoProvider toolbarRender={showPhotoTitle}>
+        {photos.map((photo) => {
+          const isLandscape = photo.asset.width > photo.asset.height;
+          return (
             <div
               key={photo.id}
               className={`${photo.asset.width > photo.asset.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'} flex flex-col gap-4 `}
@@ -23,16 +27,17 @@ const PhotoAlbum = ({ photos }: { photos: photoType[]}) => {
               <PhotoView src={photo.asset.url}>
                 <Image
                   src={photo.asset.url}
-                  alt={photo.alt || "Photo"}
-                  width={photo.asset.width || 0}
-                  height={photo.asset.height || 0}
+                  alt={photo.alt || 'Photo'}
+                  width={isLandscape ? 1920 : 1080}
+                  height={!isLandscape ? 1920 : 1080}
                 />
               </PhotoView>
             </div>
-          ))}
+          );
+        })}
       </PhotoProvider>
     </div>
-  )
-}
+  );
+};
 
 export default memo(PhotoAlbum);

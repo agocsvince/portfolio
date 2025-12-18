@@ -8,12 +8,20 @@ const Switcher = <T extends boolean>({
   labels,
   color = 'default',
   className,
+  disabled = false,
 }: switcherPropsType<T>) => {
   return (
-    <div className={`${className} flex flex-col items-center cursor-pointer`}
-     onClick={() => setState(!state as T)}>
-      <Switch color={color} onChange={() => setState(!state as T)} value={state} />
-      <span className='text-center'>{state ? labels[0] : labels[1]}</span>
+    <div
+      className={`${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer'} flex flex-col items-center`}
+      onClick={disabled ? undefined : () => setState(!state as T)}
+    >
+      <Switch
+        color={color}
+        onChange={disabled ? undefined : () => setState(!state as T)}
+        value={state}
+        disabled={disabled}
+      />
+      <span className="text-center">{state ? labels[0] : labels[1]}</span>
     </div>
   );
 };
