@@ -1,9 +1,15 @@
 import React from 'react';
 import Button from './Button';
 
-const ContactButtons = ({ buttons, href }: { buttons: string[]; href: (b: string) => string }) => {
+const ContactButtons = ({
+  buttons,
+  href,
+}: {
+  buttons: string[];
+  href: (b: string) => string;
+}) => {
   return (
-    <div className="h-full grid grid-cols-2 items-center gap-10 my-auto">
+    <div className="h-full grid grid-cols-2 items-center gap-10">
       {buttons.map((button, index) => (
         <Button
           key={index}

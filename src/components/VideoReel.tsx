@@ -10,7 +10,7 @@ const VideoReel = ({ videos }: { videos: videoType[] }) => {
 
   return (
     <>
-      <div className="hidden lg:relative lg:grid lg:grid-cols-2 gap-8">
+      <div className="hidden lg:grid lg:grid-cols-2 gap-8">
         <div className="flex flex-col gap-8">
           {videoColumns.first.map((video, index) => {
             return (
@@ -36,7 +36,7 @@ const VideoReel = ({ videos }: { videos: videoType[] }) => {
           })}
         </div>
       </div>
-      <div className="lg:hidden flex flex-co gap-8">
+      <div className="lg:hidden flex flex-col gap-8">
         {videos.map((video, index) => {
           return (
             <>

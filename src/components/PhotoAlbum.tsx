@@ -1,5 +1,4 @@
 import { photoType } from '@/helpers/types';
-import Image from 'next/image';
 import React, { memo } from 'react';
 
 import 'react-photo-view/dist/react-photo-view.css';
@@ -15,22 +14,16 @@ const PhotoAlbum = ({ photos }: { photos: photoType[] }) => {
   };
 
   return (
-    <div className="flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary">
+    <div className="flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary px-5 md:px-8 lg:px-15">
       <PhotoProvider toolbarRender={showPhotoTitle}>
         {photos.map((photo) => {
-          const isLandscape = photo.asset.width > photo.asset.height;
           return (
             <div
               key={photo.id}
-              className={`${photo.asset.width > photo.asset.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'} flex flex-col gap-4 `}
+              className={`${photo.asset.width > photo.asset.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'}  flex flex-col gap-4 `}
             >
               <PhotoView src={photo.asset.url}>
-                <Image
-                  src={photo.asset.url}
-                  alt={photo.alt || 'Photo'}
-                  width={isLandscape ? 1920 : 1080}
-                  height={!isLandscape ? 1920 : 1080}
-                />
+                <img src={photo.asset.url} alt={photo.alt || 'Photo'} />
               </PhotoView>
             </div>
           );

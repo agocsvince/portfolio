@@ -38,9 +38,9 @@ const WorksSection = ({ portfolio }: { portfolio: portfolioType }) => {
       <div
         className={`${showWeb ? 'grid' : 'hidden'} grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-15 items-center justify-center`}
       >
-        {portfolio.webProjects.map((project: webProject) => (
+        {/* {portfolio.webProjects.map((project: webProject) => (
           <EmbedWebPage project={project} key={project.id} />
-        ))}
+        ))} */}
       </div>
       <div
         className={`${!showWeb ? 'flex' : 'hidden'} flex-row items-center w-full justify-center`}
