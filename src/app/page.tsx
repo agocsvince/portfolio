@@ -8,12 +8,30 @@ export default function Home() {
       <div className="py-4 lg:py-8">
         <LogoCarousel
           logos={[
-            './assets/customers/marcz.svg',
-            './assets/customers/benifilm.svg',
-            './assets/customers/zsalya.svg',
-            './assets/customers/hazepitesek.svg',
-            './assets/customers/lp.svg',
-            './assets/customers/pressfitness.svg',
+            {
+              src: './assets/customers/marcz.svg',
+              url: 'https://mindenamifavagas.hu',
+            },
+            {
+              src: './assets/customers/benifilm.svg',
+              url: 'https://benifilm.com',
+            },
+            {
+              src: './assets/customers/zsalya.svg',
+              url: 'https://zsalyatal.hu',
+            },
+            {
+              src: './assets/customers/hazepitesek.svg',
+              url: 'https://hazepitesek.hu',
+            },
+            {
+              src: './assets/customers/lp.svg',
+              url: 'https://levendulapiknik.hu',
+            },
+            {
+              src: './assets/customers/pressfitness.svg',
+              url: 'https://pressfitness.com',
+            },
           ]}
         />
       </div>

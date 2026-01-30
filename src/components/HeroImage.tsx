@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { animate, onScroll } from 'animejs';
+import { waapi, onScroll } from 'animejs';
 import { MorphingText } from '@/components/ui/morphing-text';
 
 // Scroll breakpoints: animation progress 0→1 is synced to scroll between enter and leave.
@@ -20,11 +20,11 @@ export default function HeroImage() {
     const image = imageRef.current;
     if (!section || !image) return;
 
-    let animation: ReturnType<typeof animate> | null = null;
+    let animation: ReturnType<typeof waapi.animate> | null = null;
 
     const startAnimation = () => {
       if (!sectionRef.current || !imageRef.current) return;
-      animation = animate(imageRef.current, {
+      animation = waapi.animate(imageRef.current, {
         scale: [0.05, 1],
         height: ['25%', '100%'],
         ease: 'linear',
@@ -32,7 +32,7 @@ export default function HeroImage() {
           target: sectionRef.current,
           enter: SCROLL_ENTER,
           leave: SCROLL_LEAVE,
-          sync: 0.4, // playback progress: seek animation to scroll position between enter and leave
+          sync: window.innerWidth <= 768 ? true : 0.4, // playback progress: seek animation to scroll position between enter and leave
         }),
       });
     };
@@ -82,12 +82,12 @@ export default function HeroImage() {
         <div className="flex flex-col items-center justify-center h-screen w-screen ">
           <img
             ref={imageRef}
-            src="/assets/hero.jpeg"
+            src="/assets/hero_2.jpg"
             alt="Hero"
-            className="max-h-[100vh] w-full  object-cover grayscale-60"
+            className="max-h-[100vh] w-full object-cover grayscale-60"
             style={{
               transformOrigin: 'center center',
-              transform: 'scale(0.5)',
+              willChange: 'transform',
             }}
           />
         </div>
