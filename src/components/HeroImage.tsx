@@ -65,10 +65,10 @@ export default function HeroImage() {
           className="font-gothic absolute flex min-w-[80vw]
          max-w-[100vw] items-center justify-center z-10 uppercase text-primary overflow-hidden"
         >
-          {/* <MorphingText
+          <MorphingText
             texts={['Web developer', 'Videographer']}
             className="!text-xl md:!text-4xl lg:!text-7xl !h-8 lg:!h-20 !font-gothic tracking-widest"
-          /> */}
+          />
         </div>
         <h4 className="absolute w-max text-lg lg:text-xl text-center top-[66.666666%] left-1/2 -translate-x-1/2 text-primary z-20">
           based in{' '}
