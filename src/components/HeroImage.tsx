@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { waapi, onScroll } from 'animejs';
 import { MorphingText } from '@/components/ui/morphing-text';
 
@@ -11,30 +11,78 @@ import { MorphingText } from '@/components/ui/morphing-text';
 const SCROLL_ENTER = 'bottom top'; // viewport bottom meets section top → start scaling
 const SCROLL_LEAVE = 'center center'; // viewport top meets section center → scaling done
 
+// Detect Safari on mobile
+const isSafariMobile = () => {
+  if (typeof window === 'undefined') return false;
+  const ua = window.navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua);
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+  return isIOS || (isSafari && window.innerWidth <= 768);
+};
+
 export default function HeroImage() {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [isSafariMobileBrowser, setIsSafariMobileBrowser] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsSafariMobileBrowser(isSafariMobile());
+    setIsMobile(window.innerWidth <= 768);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
     const image = imageRef.current;
+    const wrapper = wrapperRef.current;
     if (!section || !image) return;
 
     let animation: ReturnType<typeof waapi.animate> | null = null;
+    let wrapperAnimation: ReturnType<typeof waapi.animate> | null = null;
 
     const startAnimation = () => {
       if (!sectionRef.current || !imageRef.current) return;
-      animation = waapi.animate(imageRef.current, {
-        scale: [0.05, 1],
-        height: ['25%', '100%'],
-        ease: 'linear',
-        autoplay: onScroll({
-          target: sectionRef.current,
-          enter: SCROLL_ENTER,
-          leave: SCROLL_LEAVE,
-          sync: window.innerWidth <= 768 ? true : 0.4, // playback progress: seek animation to scroll position between enter and leave
-        }),
-      });
+      
+      const scrollConfig = {
+        target: sectionRef.current,
+        enter: SCROLL_ENTER,
+        leave: SCROLL_LEAVE,
+        sync: isMobile ? true : 0.4,
+      };
+      
+      // For Safari mobile, use a wrapper approach to avoid rendering issues with height + transform
+      // Safari has issues when animating both height and transform on the same element
+      if (isSafariMobileBrowser && isMobile && wrapper) {
+        // Animate wrapper height and image scale separately to avoid Safari rendering bugs
+        wrapperAnimation = waapi.animate(wrapper, {
+          height: ['25%', '100%'],
+          ease: 'linear',
+          autoplay: onScroll(scrollConfig),
+        });
+        
+        animation = waapi.animate(imageRef.current, {
+          scale: [0.05, 1],
+          ease: 'linear',
+          autoplay: onScroll(scrollConfig),
+        });
+      } else if (isMobile && wrapper) {
+        // For other mobile browsers, animate image directly
+        animation = waapi.animate(imageRef.current, {
+          scale: [0.05, 1],
+          height: ['25%', '100%'],
+          ease: 'linear',
+          autoplay: onScroll(scrollConfig),
+        });
+      } else {
+        // Desktop: original animation
+        animation = waapi.animate(imageRef.current, {
+          scale: [0.05, 1],
+          height: ['25%', '100%'],
+          ease: 'linear',
+          autoplay: onScroll(scrollConfig),
+        });
+      }
     };
 
     // Defer until after layout so scroll observer bounds (offsetStart/offsetEnd) are correct.
@@ -46,8 +94,9 @@ export default function HeroImage() {
     return () => {
       cancelAnimationFrame(rafId);
       if (animation) animation.revert();
+      if (wrapperAnimation) wrapperAnimation.revert();
     };
-  }, []);
+  }, [isSafariMobileBrowser, isMobile]);
 
   return (
     <section
@@ -76,20 +125,51 @@ export default function HeroImage() {
             Budapest
           </span>
         </h4>
-        <h1 className="text-terminal font-gothic text-2xl lg:text-5xl absolute bottom-8 lg:bottom-auto lg:top-1/2 lg:-left-22 z-20 lg:-rotate-90 uppercase tracking-wider">
+        <h1 className="text-terminal font-gothic text-3xl lg:text-5xl absolute bottom-8 lg:bottom-auto lg:top-1/2 lg:-left-22 z-20 lg:-rotate-90 uppercase tracking-wider">
           [Agocs Vince]
         </h1>
         <div className="flex flex-col items-center justify-center h-dvh w-full">
-          <img
-            ref={imageRef}
-            src="/assets/hero_2.jpg"
-            alt="Hero"
-            className="max-h-dvh w-full object-cover grayscale-60"
-            style={{
-              transformOrigin: 'center center',
-              willChange: 'transform',
-            }}
-          />
+          {isMobile ? (
+            <div
+              ref={wrapperRef}
+              className="w-full overflow-hidden md:hidden"
+              style={{
+                height: '25%',
+                ...(isSafariMobileBrowser && {
+                  WebkitBackfaceVisibility: 'hidden',
+                  backfaceVisibility: 'hidden',
+                  WebkitTransform: 'translateZ(0)',
+                }),
+              }}
+            >
+              <img
+                ref={imageRef}
+                src="/assets/hero_2.jpg"
+                alt="Hero"
+                className="w-full h-full object-cover grayscale-60"
+                style={{
+                  transformOrigin: 'center center',
+                  willChange: 'transform',
+                  ...(isSafariMobileBrowser && {
+                    WebkitTransform: 'translateZ(0)',
+                    WebkitBackfaceVisibility: 'hidden',
+                    backfaceVisibility: 'hidden',
+                  }),
+                }}
+              />
+            </div>
+          ) : (
+            <img
+              ref={imageRef}
+              src="/assets/hero_2.jpg"
+              alt="Hero"
+              className="max-h-dvh w-full object-cover grayscale-60"
+              style={{
+                transformOrigin: 'center center',
+                willChange: 'transform',
+              }}
+            />
+          )}
         </div>
       </div>
     </section>

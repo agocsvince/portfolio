@@ -5,9 +5,9 @@ import { portfolioType } from '@/helpers/types';
 import { useEffect, useState } from 'react';
 import { useLoadingStore } from '@/stores/LoadingStore';
 import { GlobalLoader } from '@/components/GlobalLoader';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
-import WorksSection from '@/components/WorksSection';
+import ContactSection from '@/components/archive/portfolio-1.0/ContactSection';
+import Footer from '@/components/archive/portfolio-1.0/Footer';
+import WorksSection from '@/components/archive/portfolio-1.0/WorksSection';
 
 const emptyPortfolio = {
   buttons: [''],

@@ -50,7 +50,10 @@ function FadeText({
 
   return (
     <span
-      className={cn('inline-block transition-opacity duration-[400ms]', className)}
+      className={cn(
+        'inline-block transition-opacity duration-[400ms]',
+        className,
+      )}
       style={{ opacity }}
     >
       {texts[index]}
@@ -201,7 +204,7 @@ export const MorphingText: React.FC<MorphingTextProps> = ({
           className,
         )}
       >
-        <FadeText texts={texts} className="text-3xl font-bold " />
+        <FadeText texts={texts} className="text-2xl font-bold " />
       </div>
     );
   }

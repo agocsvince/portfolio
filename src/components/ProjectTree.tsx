@@ -4,15 +4,11 @@ import { useState, useCallback } from 'react';
 
 export type TreeNode = {
   title: string;
-  id?: string;
+  id: string;
   children?: TreeNode[];
 };
 
-export type ProjectTreeData = {
-  projects: {
-    children: TreeNode[];
-  };
-};
+export type ProjectTreeData = TreeNode;
 
 interface ProjectTreeProps {
   data: ProjectTreeData;
@@ -65,7 +61,7 @@ function TreeNodeItem({
   );
 
   return (
-    <div className="font-mono text-terminal">
+    <div className="font-mono text-terminal leading-relaxed">
       {isProjectClickable ? (
         <button
           type="button"
@@ -140,12 +136,12 @@ export default function ProjectTree({
     });
   }, []);
 
-  const children = data.projects.children;
+  const children = data.children;
   if (!children || children.length === 0) return null;
 
   return (
-    <div className="text-terminal font-mono text-lg md:text-base">
-      <div className="text-terminal font-mono">/{rootLabel}/</div>
+    <div className="text-terminal font-mono text-sm leading-relaxed">
+      <div className="text-terminal font-mono">/{data.title || rootLabel}/</div>
       {children.map((node, i) => {
         const isLast = i === children.length - 1;
         const parentPrefix = '';

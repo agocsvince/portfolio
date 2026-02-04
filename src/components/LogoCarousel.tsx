@@ -66,7 +66,7 @@ export default function LogoCarousel({ logos }: { logos: Logo[] }) {
                 <img
                   src={logo.src}
                   alt={logo.src}
-                  className="max-h-8 lg:max-h-12"
+                  className="max-h-10 lg:max-h-12"
                 />
               </a>
             </div>

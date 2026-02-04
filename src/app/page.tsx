@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <HeroImage />
-      <div className="py-4 lg:py-8">
+      <div className="py-6 lg:py-8">
         <LogoCarousel
           logos={[
             {
