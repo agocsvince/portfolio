@@ -51,25 +51,27 @@ export default function LogoCarousel({ logos }: { logos: Logo[] }) {
         style={{ willChange: 'transform' }}
       >
         {/* Duplicate logos for seamless infinite loop */}
-        {[...logos, ...logos, ...logos].map((logo, i) => (
-          <div
-            key={i}
-            className="text-alternative text-2xl font-mono whitespace-nowrap"
-          >
-            <a
-              href={logo.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer"
+        {[...logos, ...logos, ...logos, ...logos, ...logos, ...logos].map(
+          (logo, i) => (
+            <div
+              key={i}
+              className="text-alternative text-2xl font-mono whitespace-nowrap"
             >
-              <img
-                src={logo.src}
-                alt={logo.src}
-                className="max-h-8 lg:max-h-12"
-              />
-            </a>
-          </div>
-        ))}
+              <a
+                href={logo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.src}
+                  className="max-h-8 lg:max-h-12"
+                />
+              </a>
+            </div>
+          ),
+        )}
       </div>
     </div>
   );

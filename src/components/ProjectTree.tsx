@@ -144,7 +144,7 @@ export default function ProjectTree({
   if (!children || children.length === 0) return null;
 
   return (
-    <div className="text-terminal font-mono text-sm lg:text-base">
+    <div className="text-terminal font-mono text-lg md:text-base">
       <div className="text-terminal font-mono">/{rootLabel}/</div>
       {children.map((node, i) => {
         const isLast = i === children.length - 1;

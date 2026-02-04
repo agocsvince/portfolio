@@ -19,8 +19,9 @@ function useIsMobile() {
   return isMobile;
 }
 
-const FADE_DURATION = 500;
-const FADE_INTERVAL = 2500;
+/* Match desktop speed: morphTime (1) + cooldownTime (0.3) ≈ 1.3s per text */
+const FADE_DURATION = 400;
+const FADE_INTERVAL = 1300;
 
 function FadeText({
   texts,
@@ -49,7 +50,7 @@ function FadeText({
 
   return (
     <span
-      className={cn('inline-block transition-opacity duration-500', className)}
+      className={cn('inline-block transition-opacity duration-[400ms]', className)}
       style={{ opacity }}
     >
       {texts[index]}

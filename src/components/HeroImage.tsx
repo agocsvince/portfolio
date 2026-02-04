@@ -56,7 +56,7 @@ export default function HeroImage() {
       className="relative w-full"
       style={{ height: '300vh' }}
     >
-      <div className="sticky top-0 flex min-h-[100vh] w-full items-center justify-center bg-primary">
+      <div className="sticky top-0 flex min-h-dvh w-full items-center justify-center bg-primary">
         <h3 className="absolute w-max text-xl top-[25%] text-center lg:text-2xl left-1/2 -translate-x-1/2 text-primary z-20">
           Hi, my name is{' '}
           <span className="font-gothic text-2xl lg:text-3xl">Vince</span>
@@ -79,12 +79,12 @@ export default function HeroImage() {
         <h1 className="text-terminal font-gothic text-2xl lg:text-5xl absolute bottom-8 lg:bottom-auto lg:top-1/2 lg:-left-22 z-20 lg:-rotate-90 uppercase tracking-wider">
           [Agocs Vince]
         </h1>
-        <div className="flex flex-col items-center justify-center h-screen w-screen ">
+        <div className="flex flex-col items-center justify-center h-dvh w-full">
           <img
             ref={imageRef}
             src="/assets/hero_2.jpg"
             alt="Hero"
-            className="max-h-[100vh] w-full object-cover grayscale-60"
+            className="max-h-dvh w-full object-cover grayscale-60"
             style={{
               transformOrigin: 'center center',
               willChange: 'transform',

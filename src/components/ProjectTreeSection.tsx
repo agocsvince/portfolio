@@ -34,7 +34,7 @@ export default function ProjectTreeSection() {
   console.log(activeProjectId);
 
   return (
-    <div className="flex flex-col gap-4 mx-14">
+    <div className="flex flex-col gap-4 mx-4 lg:mx-14">
       <ProjectTree
         activeProjectId={activeProjectId}
         onProjectClick={(id) => setActiveProjectId(id)}
