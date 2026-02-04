@@ -1,5 +1,6 @@
 import HeroImage from '@/components/HeroImage';
 import LogoCarousel from '@/components/LogoCarousel';
+import ProjectTreeSection from '@/components/ProjectTreeSection';
 
 export default function Home() {
   return (
@@ -35,7 +36,7 @@ export default function Home() {
           ]}
         />
       </div>
-      <h1 className="text-alternative h-40">Hello</h1>
+      <ProjectTreeSection />
     </div>
   );
 }

@@ -67,7 +67,7 @@ export default function HeroImage() {
         >
           <MorphingText
             texts={['Web developer', 'Videographer']}
-            className="!text-xl md:!text-4xl lg:!text-7xl !h-8 lg:!h-20 !font-gothic tracking-widest"
+            className="!text-xl md:!text-4xl lg:!text-7xl !h-8 md:!h-10 lg:!h-20 !font-gothic tracking-wider"
           />
         </div>
         <h4 className="absolute w-max text-lg lg:text-xl text-center top-[66.666666%] left-1/2 -translate-x-1/2 text-primary z-20">

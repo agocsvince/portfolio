@@ -1,11 +1,64 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
-const morphTime = 1.5;
-const cooldownTime = 0.5;
+const MOBILE_BREAKPOINT = 768;
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  return isMobile;
+}
+
+const FADE_DURATION = 500;
+const FADE_INTERVAL = 2500;
+
+function FadeText({
+  texts,
+  className,
+}: {
+  texts: string[];
+  className?: string;
+}) {
+  const [index, setIndex] = useState(0);
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const interval = setInterval(() => {
+      setOpacity(0);
+      timeoutId = setTimeout(() => {
+        setIndex((i) => (i + 1) % texts.length);
+        setOpacity(1);
+      }, FADE_DURATION);
+    }, FADE_INTERVAL);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeoutId);
+    };
+  }, [texts.length]);
+
+  return (
+    <span
+      className={cn('inline-block transition-opacity duration-500', className)}
+      style={{ opacity }}
+    >
+      {texts[index]}
+    </span>
+  );
+}
+
+const morphTime = 1;
+const cooldownTime = 0.3;
 
 const useMorphingText = (texts: string[]) => {
   const textIndexRef = useRef(0);
@@ -136,14 +189,31 @@ const SvgFilters: React.FC = () => (
 export const MorphingText: React.FC<MorphingTextProps> = ({
   texts,
   className,
-}) => (
-  <div
-    className={cn(
-      'relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] leading-none font-bold [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem]',
-      className,
-    )}
-  >
-    <Texts texts={texts} />
-    <SvgFilters />
-  </div>
-);
+}) => {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <div
+        className={cn(
+          'relative mx-auto w-full  max-w-screen-md text-center flex items-center justify-center',
+          className,
+        )}
+      >
+        <FadeText texts={texts} className="text-3xl font-bold " />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={cn(
+        'relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] leading-none font-bold [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem]',
+        className,
+      )}
+    >
+      <Texts texts={texts} />
+      <SvgFilters />
+    </div>
+  );
+};
