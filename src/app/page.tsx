@@ -33,6 +33,10 @@ export default function Home() {
               src: './assets/customers/pressfitness.svg',
               url: 'https://pressfitness.com',
             },
+            {
+              src: './assets/customers/gyuben.com.png',
+              url: 'https://gyuben.com',
+            },
           ]}
         />
       </div>
