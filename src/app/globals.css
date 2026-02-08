@@ -62,7 +62,7 @@
 }
 html {
   scroll-behavior: smooth;
-  background-color: var(--dark-secondary);
+  background-color: var(--terminal);
 }
 
 @theme {
@@ -88,6 +88,18 @@ html {
     }
     50% {
       visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  --animate-block-blink: block-blink 3s infinite;
+  @keyframes block-blink {
+    0%,
+    49% {
+      opacity: 0;
+    }
+    50%,
+    100% {
       opacity: 1;
     }
   }
@@ -224,4 +236,9 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Safari mobile hero image fix - ensure height stays at 100% */
+.safari-mobile-hero-image {
+  height: 100% !important;
 }

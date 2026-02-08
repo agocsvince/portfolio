@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { useState, useCallback } from 'react';
 
 export type TreeNode = {
@@ -15,6 +16,7 @@ interface ProjectTreeProps {
   activeProjectId?: string;
   onProjectClick?: (id: string) => void;
   rootLabel?: string;
+  className?: string;
 }
 
 function getPrefix(parentPrefix: string, isLast: boolean): string {
@@ -115,6 +117,7 @@ function TreeNodeItem({
 }
 
 export default function ProjectTree({
+  className,
   data,
   activeProjectId,
   onProjectClick,
@@ -140,7 +143,12 @@ export default function ProjectTree({
   if (!children || children.length === 0) return null;
 
   return (
-    <div className="text-terminal font-mono text-sm leading-relaxed">
+    <div
+      className={cn(
+        'text-terminal font-mono text-sm leading-relaxed',
+        className,
+      )}
+    >
       <div className="text-terminal font-mono">/{data.title || rootLabel}/</div>
       {children.map((node, i) => {
         const isLast = i === children.length - 1;

@@ -28,8 +28,18 @@ export default function HeroImage() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsSafariMobileBrowser(isSafariMobile());
-    setIsMobile(window.innerWidth <= 768);
+    const safariMobile = isSafariMobile();
+    const mobile = window.innerWidth <= 768;
+    setIsSafariMobileBrowser(safariMobile);
+    setIsMobile(mobile);
+    
+    // For Safari mobile, set image height to 100% immediately to prevent wrong initial height
+    // This ensures the image fills the wrapper which will animate its height
+    if (safariMobile && mobile && imageRef.current) {
+      imageRef.current.style.height = '100%';
+      // Prevent any height animation from being applied to the image
+      imageRef.current.style.setProperty('height', '100%', 'important');
+    }
   }, []);
 
   useEffect(() => {
@@ -38,35 +48,47 @@ export default function HeroImage() {
     const wrapper = wrapperRef.current;
     if (!section || !image) return;
 
+    // Check Safari directly here to avoid state timing issues
+    const isSafari = isSafariMobile();
+    const isMobileWidth = window.innerWidth <= 768;
+
     let animation: ReturnType<typeof waapi.animate> | null = null;
     let wrapperAnimation: ReturnType<typeof waapi.animate> | null = null;
 
     const startAnimation = () => {
       if (!sectionRef.current || !imageRef.current) return;
-      
+
       const scrollConfig = {
         target: sectionRef.current,
         enter: SCROLL_ENTER,
         leave: SCROLL_LEAVE,
-        sync: isMobile ? true : 0.4,
+        sync: isMobileWidth ? true : 0.4,
       };
-      
+
       // For Safari mobile, use a wrapper approach to avoid rendering issues with height + transform
       // Safari has issues when animating both height and transform on the same element
-      if (isSafariMobileBrowser && isMobile && wrapper) {
+      if (isSafari && isMobileWidth && wrapper) {
+        // Ensure image height is set to 100% BEFORE animation starts
+        const img = imageRef.current;
+        img.style.height = '100%';
+        // Add a class to enforce height via CSS as well
+        img.classList.add('safari-mobile-hero-image');
+        
         // Animate wrapper height and image scale separately to avoid Safari rendering bugs
+        // Image height should always be 100% to fill the wrapper, never animated
         wrapperAnimation = waapi.animate(wrapper, {
           height: ['25%', '100%'],
           ease: 'linear',
           autoplay: onScroll(scrollConfig),
         });
-        
-        animation = waapi.animate(imageRef.current, {
+
+        // Only animate scale, NOT height for Safari - explicitly exclude height
+        animation = waapi.animate(img, {
           scale: [0.05, 1],
           ease: 'linear',
           autoplay: onScroll(scrollConfig),
         });
-      } else if (isMobile && wrapper) {
+      } else if (isMobileWidth && wrapper) {
         // For other mobile browsers, animate image directly
         animation = waapi.animate(imageRef.current, {
           scale: [0.05, 1],
@@ -95,6 +117,10 @@ export default function HeroImage() {
       cancelAnimationFrame(rafId);
       if (animation) animation.revert();
       if (wrapperAnimation) wrapperAnimation.revert();
+      // Clean up Safari class
+      if (imageRef.current) {
+        imageRef.current.classList.remove('safari-mobile-hero-image');
+      }
     };
   }, [isSafariMobileBrowser, isMobile]);
 
@@ -150,6 +176,8 @@ export default function HeroImage() {
                 style={{
                   transformOrigin: 'center center',
                   willChange: 'transform',
+                  // For Safari: height stays 100%, wrapper animates. For others: height animates 25%->100%
+                  height: isSafariMobileBrowser ? '100%' : undefined,
                   ...(isSafariMobileBrowser && {
                     WebkitTransform: 'translateZ(0)',
                     WebkitBackfaceVisibility: 'hidden',
