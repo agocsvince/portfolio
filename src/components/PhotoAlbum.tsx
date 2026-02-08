@@ -1,10 +1,16 @@
 import { photoType } from '@/helpers/types';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
-const PhotoAlbum = ({ photos }: { photos: photoType[] }) => {
+const PhotoAlbum = ({
+  photos,
+  columns = 2,
+}: {
+  photos: photoType[];
+  columns?: number;
+}) => {
   const showPhotoTitle = ({ index }: { index: number }) => {
     return (
       <span className="PhotoView-Slider__toolbarIcon">
@@ -13,21 +19,64 @@ const PhotoAlbum = ({ photos }: { photos: photoType[] }) => {
     );
   };
 
+  // Split photos into columns only if columns > 1
+  const midPoint = columns > 1 ? Math.ceil(photos.length / 2) : photos.length;
+  const leftColumn = photos.slice(0, midPoint);
+  const rightColumn = columns > 1 ? photos.slice(midPoint) : [];
+
   return (
-    <div className="flex flex-row flex-wrap p-4 gap-8 justify-center bg-light-primary px-5 md:px-8 lg:px-15">
+    <div className="gap-4 justify-center bg-light-primary">
       <PhotoProvider toolbarRender={showPhotoTitle}>
-        {photos.map((photo) => {
-          return (
-            <div
-              key={photo.id}
-              className={`${photo.asset.width > photo.asset.height ? 'flex-[35%] xl:flex-[40%]' : 'flex-[25%]'}  flex flex-col gap-4 `}
-            >
-              <PhotoView src={photo.asset.url}>
-                <img src={photo.asset.url} alt={photo.alt || 'Photo'} />
-              </PhotoView>
+        <div className={`grid grid-cols-${columns} gap-4`}>
+          <div className="flex flex-col gap-4">
+            {leftColumn.map((photo) => {
+              const aspectRatio = photo.asset.width / photo.asset.height;
+              return (
+                <div key={photo.id} className="flex flex-col gap-4">
+                  <PhotoView src={photo.asset.url}>
+                    <div
+                      className="w-full overflow-hidden"
+                      style={{
+                        aspectRatio: aspectRatio,
+                      }}
+                    >
+                      <img
+                        src={photo.asset.url}
+                        alt={photo.alt || 'Photo'}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </PhotoView>
+                </div>
+              );
+            })}
+          </div>
+          {rightColumn.length > 0 && (
+            <div className="flex flex-col gap-4">
+              {rightColumn.map((photo) => {
+                const aspectRatio = photo.asset.width / photo.asset.height;
+                return (
+                  <div key={photo.id} className="flex flex-col gap-4">
+                    <PhotoView src={photo.asset.url}>
+                      <div
+                        className="w-full overflow-hidden"
+                        style={{
+                          aspectRatio: aspectRatio,
+                        }}
+                      >
+                        <img
+                          src={photo.asset.url}
+                          alt={photo.alt || 'Photo'}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    </PhotoView>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+          )}
+        </div>
       </PhotoProvider>
     </div>
   );
