@@ -485,6 +485,17 @@ export const pressfitnessWebsitePhotos: photoType[] = [
       height: 1080,
     },
   },
+  {
+    id: 'website-pressfitness-2',
+    alt: 'Press Fitness Website',
+    title: 'Press Fitness Website',
+    asset: {
+      fileName: 'pressfitness.hu_2.png',
+      url: '/assets/websites/pressfitness.hu_2.png',
+      width: 1920,
+      height: 1080,
+    },
+  },
 ];
 
 export const portfolioWebsitePhotos: photoType[] = [

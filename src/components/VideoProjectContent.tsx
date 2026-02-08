@@ -41,7 +41,7 @@ const VideoProjectContent: React.FC<VideoProjectContentProps> = ({
             href={originalSrc}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-80"
+            className="hover:opacity-80 underline"
           >
             <h1 className="text-2xl">{title}</h1>
           </a>

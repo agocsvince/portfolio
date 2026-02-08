@@ -120,6 +120,7 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
       <VideoProjectContent
         category="Music Video"
         title="Kain - Buda"
+        originalSrc="https://youtu.be/P-rpS-Q1_ys?si=yltS9zKZn45TcAdP"
         description="The second visual from Kain's 4-track 2310 EP offers a glimpse into
           the quiet beauty of his newfound home and surroundings. We spent an
           entire day wandering the peaceful streets of Buda — more specifically,
@@ -137,6 +138,7 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
       <VideoProjectContent
         category="Music Video"
         title="Kain - Mostanában"
+        originalSrc="https://youtu.be/UZlqhnq30yI?si=PpiTZVhtBlBn5ZsM"
         description="This visual is the first piece in a series accompanying the 4-track
           2310 EP. Set in Kain's (and my own) hometown, the story unfolds
           through everyday scenes that transport the viewer back into the
@@ -153,6 +155,7 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
       <VideoProjectContent
         category="Music Video"
         title="Kain - Őszintén"
+        originalSrc="https://youtu.be/aCarnMXrZsY?si=NO3lIbnmpnJAoVAX"
         description="The third visual in the series created for Kain's 4-track 2310 EP is
           undoubtedly the most honest (pun intended). Its imagery reflects the
           night and emotional state in which the song was written. Kain speaks
@@ -168,7 +171,8 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
     content: (
       <VideoProjectContent
         category="Music Video"
-        title="Kain - Csálád"
+        title="Kain - Család"
+        originalSrc="https://youtu.be/dg7MYg4KXuk?si=TGuWuXU8-urBTPU4"
         description="The final visual in the series for Kain's 4-track 2310 EP is a
           heartfelt expression of gratitude for the opportunities music has
           given him — the freedom, the journey, the voice. Once again, we return
@@ -187,6 +191,7 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
       <VideoProjectContent
         category="Visualizer"
         title="Susa - 2 előre 1 hátra"
+        originalSrc="https://www.youtube.com/watch?v=W0oqIMvJh2o"
         description="Visualizer for my friend Susa, who's making his way in the music
           industry with his own unique style. This lovely track is also a
           tribute to one of my favorite directors, David Lynch — I could watch
@@ -200,6 +205,7 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
       <VideoProjectContent
         category="Live video"
         title="Százszorszebb - gyuris, Susa, Szalai"
+        originalSrc="https://www.youtube.com/watch?v=13idNOYYFOk"
         description="A collaboration by Gyuris, Susa and Szalai, Szeged SZIN Festival,
           end-of-summer vibes — this is the kind of music that always gets the
           crowd going."
@@ -213,6 +219,7 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
         category="Aftermovie"
         title="December 12.//Palazzo Permanens"
         videoSrc="/assets/videos/KAIN_AFTERMOVIE.mov"
+        originalSrc="https://youtu.be/I80j4Hoc4hU?si=z5-spijeRFbXN4gI"
       />
     ),
   },

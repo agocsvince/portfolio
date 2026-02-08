@@ -13,20 +13,18 @@ const WebsiteProjectContent: React.FC<WebsiteProjectContentProps> = ({
   photos,
   src,
 }) => {
-  const columns = photos.length > 1 ? 2 : 1;
-
   return (
     <div>
       <a
         href={src}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:opacity-80 underline block w-min"
+        className="hover:opacity-80 underline"
       >
-        <h1 className="text-2xl mb-4 w-min">{title}</h1>
+        <h1 className="text-2xl mb-4">{title}</h1>
       </a>
       <div className="bg-light-primary p-4 text-dark-primary">
-        <PhotoAlbum photos={photos} columns={columns} />
+        <PhotoAlbum photos={photos} columns={1} />
       </div>
     </div>
   );
