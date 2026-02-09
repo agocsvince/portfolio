@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import ProjectTree, { ProjectTreeData } from '@/components/ProjectTree';
 import Link from 'next/link';
 import VideoProjectContent from './VideoProjectContent';
@@ -300,6 +300,7 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
 export default function ProjectTreeSection() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const pathname = usePathname();
 
   const isUpdatingFromUserAction = useRef(false);
   const lastSyncedProjectId = useRef<projectId | null>(null);
@@ -346,15 +347,12 @@ export default function ProjectTreeSection() {
 
   // Update URL when project changes (user clicks)
   useEffect(() => {
-    // Skip if already synced or if updating from URL
-    if (
-      isUpdatingFromUserAction.current ||
-      lastSyncedProjectId.current === activeProjectId
-    ) {
+    // Skip if already synced (to avoid unnecessary updates)
+    if (lastSyncedProjectId.current === activeProjectId) {
       return;
     }
 
-    // Mark that we're updating from user action
+    // Mark that we're updating from user action (prevents first useEffect from interfering)
     isUpdatingFromUserAction.current = true;
     lastSyncedProjectId.current = activeProjectId;
 
@@ -362,9 +360,10 @@ export default function ProjectTreeSection() {
     if (activeProjectId !== 'uuid-1') {
       params.set('project', activeProjectId);
     }
-    const newUrl = params.toString()
-      ? `?${params.toString()}`
-      : window.location.pathname;
+    const queryString = params.toString();
+    const newUrl = queryString
+      ? `${pathname}?${queryString}`
+      : pathname;
 
     router.replace(newUrl, { scroll: false });
 
@@ -372,12 +371,11 @@ export default function ProjectTreeSection() {
     setTimeout(() => {
       isUpdatingFromUserAction.current = false;
     }, 100);
-  }, [activeProjectId, router]);
+  }, [activeProjectId, router, pathname]);
 
   const handleProjectClick = (id: string) => {
     if (id.startsWith('uuid-')) {
-      // Set flag before updating state to prevent first useEffect from interfering
-      isUpdatingFromUserAction.current = true;
+      // Just update the state - the second useEffect will handle URL update
       setActiveProjectId(id as projectId);
     }
   };
