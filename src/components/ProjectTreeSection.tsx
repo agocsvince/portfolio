@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import ProjectTree, { ProjectTreeData } from '@/components/ProjectTree';
 import Link from 'next/link';
 import VideoProjectContent from './VideoProjectContent';
@@ -297,10 +298,86 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
 };
 
 export default function ProjectTreeSection() {
-  const [activeProjectId, setActiveProjectId] = useState<projectId>('uuid-1');
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const isUpdatingFromUserAction = useRef(false);
+  const lastSyncedProjectId = useRef<projectId | null>(null);
+
+  const [activeProjectId, setActiveProjectId] = useState<projectId>(() => {
+    const projectParam = searchParams.get('project');
+    const initialId =
+      projectParam && projectParam in projectData
+        ? (projectParam as projectId)
+        : 'uuid-1';
+    lastSyncedProjectId.current = initialId;
+    return initialId;
+  });
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      const url = `${window.location.origin}${window.location.pathname}?project=${activeProjectId}#project-content`;
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 10000);
+    } catch (err) {
+      console.error('Failed to copy to clipboard:', err);
+    }
+  };
+
+  // Sync activeProjectId when URL changes (browser back/forward or initial load)
+  useEffect(() => {
+    // Skip if we're updating from user action
+    if (isUpdatingFromUserAction.current) return;
+
+    const projectParam = searchParams.get('project');
+    const urlProjectId =
+      projectParam && projectParam in projectData
+        ? (projectParam as projectId)
+        : 'uuid-1';
+
+    if (urlProjectId !== activeProjectId) {
+      setActiveProjectId(urlProjectId);
+      lastSyncedProjectId.current = urlProjectId;
+    }
+  }, [searchParams]); // Only depend on searchParams, not activeProjectId
+
+  // Update URL when project changes (user clicks)
+  useEffect(() => {
+    // Skip if already synced or if updating from URL
+    if (
+      isUpdatingFromUserAction.current ||
+      lastSyncedProjectId.current === activeProjectId
+    ) {
+      return;
+    }
+
+    // Mark that we're updating from user action
+    isUpdatingFromUserAction.current = true;
+    lastSyncedProjectId.current = activeProjectId;
+
+    const params = new URLSearchParams();
+    if (activeProjectId !== 'uuid-1') {
+      params.set('project', activeProjectId);
+    }
+    const newUrl = params.toString()
+      ? `?${params.toString()}`
+      : window.location.pathname;
+
+    router.replace(newUrl, { scroll: false });
+
+    // Reset flag after a short delay to allow URL to update
+    setTimeout(() => {
+      isUpdatingFromUserAction.current = false;
+    }, 100);
+  }, [activeProjectId, router]);
 
   const handleProjectClick = (id: string) => {
     if (id.startsWith('uuid-')) {
+      // Set flag before updating state to prevent first useEffect from interfering
+      isUpdatingFromUserAction.current = true;
       setActiveProjectId(id as projectId);
     }
   };
@@ -313,7 +390,18 @@ export default function ProjectTreeSection() {
         data={defaultData}
         className="md:sticky top-4 self-start"
       />
-      <div className="flex flex-col gap-4 text-terminal font-mono text-sm py-4 lg:py-0">
+      <div
+        id="project-content"
+        className="flex flex-col gap-4 text-terminal font-mono text-sm py-4 lg:py-0 relative"
+      >
+        {/* <button
+          type="button"
+          onClick={handleCopy}
+          className="absolute top-0 right-0 font-mono text-xs opacity-20 hover:opacity-100"
+          title="Copy link"
+        >
+          {copied ? 'copied' : '@link'}
+        </button> */}
         {projectData[activeProjectId]?.content}
       </div>
     </div>

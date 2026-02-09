@@ -17,7 +17,7 @@ const isSafariMobile = () => {
   const ua = window.navigator.userAgent;
   const isIOS = /iPad|iPhone|iPod/.test(ua);
   const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
-  return isIOS || (isSafari && window.innerWidth <= 768);
+  return isIOS || (isSafari && window.innerWidth <= 480);
 };
 
 export default function HeroImage() {
@@ -29,10 +29,10 @@ export default function HeroImage() {
 
   useEffect(() => {
     const safariMobile = isSafariMobile();
-    const mobile = window.innerWidth <= 768;
+    const mobile = window.innerWidth <= 480;
     setIsSafariMobileBrowser(safariMobile);
     setIsMobile(mobile);
-    
+
     // For Safari mobile, set image height to 100% immediately to prevent wrong initial height
     // This ensures the image fills the wrapper which will animate its height
     if (safariMobile && mobile && imageRef.current) {
@@ -50,7 +50,7 @@ export default function HeroImage() {
 
     // Check Safari directly here to avoid state timing issues
     const isSafari = isSafariMobile();
-    const isMobileWidth = window.innerWidth <= 768;
+    const isMobileWidth = window.innerWidth <= 480;
 
     let animation: ReturnType<typeof waapi.animate> | null = null;
     let wrapperAnimation: ReturnType<typeof waapi.animate> | null = null;
@@ -73,7 +73,7 @@ export default function HeroImage() {
         img.style.height = '100%';
         // Add a class to enforce height via CSS as well
         img.classList.add('safari-mobile-hero-image');
-        
+
         // Animate wrapper height and image scale separately to avoid Safari rendering bugs
         // Image height should always be 100% to fill the wrapper, never animated
         wrapperAnimation = waapi.animate(wrapper, {
@@ -158,7 +158,7 @@ export default function HeroImage() {
           {isMobile ? (
             <div
               ref={wrapperRef}
-              className="w-full overflow-hidden md:hidden"
+              className="w-full overflow-hidden sm:hidden"
               style={{
                 height: '25%',
                 ...(isSafariMobileBrowser && {
