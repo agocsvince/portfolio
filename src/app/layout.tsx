@@ -84,6 +84,7 @@ const jsonLd = {
   description: 'Web developer & videographer based in Budapest, specializing in modern web development and professional video production.',
   image: 'https://agocsvince.com/og_image.jpg',
   url: 'https://agocsvince.com',
+  email: 'contact@agocsvince.com',
   sameAs: [
     'https://www.linkedin.com/in/vince-ag%C3%B3cs-74b585221/',
     'https://github.com/agocsvince',
