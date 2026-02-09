@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import HeroImage from '@/components/HeroImage';
 import LogoCarousel from '@/components/LogoCarousel';
 import ProjectTreeSection from '@/components/ProjectTreeSection';
@@ -40,7 +41,9 @@ export default function Home() {
           ]}
         />
       </div>
-      <ProjectTreeSection />
+      <Suspense fallback={null}>
+        <ProjectTreeSection />
+      </Suspense>
     </div>
   );
 }
