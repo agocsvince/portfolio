@@ -151,7 +151,7 @@ export default function HeroImage() {
             Budapest
           </span>
         </h4>
-        <h1 className="text-terminal font-gothic text-3xl lg:text-5xl absolute bottom-8 lg:bottom-auto lg:top-1/2 lg:-left-22 z-20 lg:-rotate-90 uppercase tracking-wider">
+        <h1 className="text-terminal font-gothic text-3xl lg:text-5xl absolute bottom-8 lg:bottom-auto lg:-left-22 z-20 lg:-rotate-90 uppercase tracking-wider">
           [Agocs Vince]
         </h1>
         <div className="flex flex-col items-center justify-center h-dvh w-full">
