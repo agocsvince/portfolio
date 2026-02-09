@@ -58,6 +58,7 @@ export default function RootLayout({
         />
         <meta property="og:url" content="https://agocsvince.com" />
         <meta property="og:type" content="website" />
+        <link rel="icon" href="/logo_alternative.svg" />
         <link rel="canonical" href="https://agocsvince.com" />
         <script
           type="application/ld+json"
