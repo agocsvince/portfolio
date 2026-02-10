@@ -22,6 +22,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000001840002.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000001840002.jpg',
     },
   },
   {
@@ -33,6 +34,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000001840008.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000001840008.jpg',
     },
   },
   {
@@ -44,6 +46,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000001840017.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000001840017.jpg',
     },
   },
   {
@@ -55,6 +58,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000001840026.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000001840026.jpg',
     },
   },
   {
@@ -66,6 +70,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000006470027.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000006470027.jpg',
     },
   },
   {
@@ -77,6 +82,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000039480023.jpg',
       width: 1357,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/000039480023.jpg',
     },
   },
   {
@@ -88,6 +94,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000039490017.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000039490017.jpg',
     },
   },
   {
@@ -99,6 +106,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000039490023.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000039490023.jpg',
     },
   },
   {
@@ -110,6 +118,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000048260014.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000048260014.jpg',
     },
   },
   {
@@ -121,6 +130,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000048260020.jpg',
       width: 1358,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/000048260020.jpg',
     },
   },
   {
@@ -132,6 +142,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000048260023.jpg',
       width: 1358,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/000048260023.jpg',
     },
   },
   {
@@ -143,6 +154,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000086630004.jpg',
       width: 1358,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/000086630004.jpg',
     },
   },
   {
@@ -154,6 +166,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000086630010.jpg',
       width: 1358,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/000086630010.jpg',
     },
   },
   {
@@ -165,6 +178,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/000086630016.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/000086630016.jpg',
     },
   },
   {
@@ -176,6 +190,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_13.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_13.jpg',
     },
   },
   {
@@ -187,6 +202,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/img016.jpg',
       width: 1323,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/img016.jpg',
     },
   },
 
@@ -199,6 +215,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/img032.jpg',
       width: 1364,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/img032.jpg',
     },
   },
   {
@@ -210,6 +227,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/img035.jpg',
       width: 2048,
       height: 1379,
+      thumbnailSrc: '/assets/photos/thumbnails/img035.jpg',
     },
   },
   {
@@ -221,6 +239,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/img071.jpg',
       width: 1355,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/img071.jpg',
     },
   },
   {
@@ -232,6 +251,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_01.jpg',
       width: 1358,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_01.jpg',
     },
   },
   {
@@ -243,6 +263,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_02.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_02.jpg',
     },
   },
   {
@@ -254,6 +275,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_03.jpg',
       width: 2048,
       height: 1357,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_03.jpg',
     },
   },
   {
@@ -265,6 +287,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_04.jpg',
       width: 1356,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_04.jpg',
     },
   },
   {
@@ -276,6 +299,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_05.jpg',
       width: 1442,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_05.jpg',
     },
   },
   {
@@ -287,6 +311,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_06.jpg',
       width: 1365,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_06.jpg',
     },
   },
   {
@@ -298,6 +323,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_07.jpg',
       width: 2048,
       height: 1350,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_07.jpg',
     },
   },
   {
@@ -309,6 +335,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_08.jpg',
       width: 2048,
       height: 1381,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_08.jpg',
     },
   },
   {
@@ -320,6 +347,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_09.jpg',
       width: 1358,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_09.jpg',
     },
   },
   {
@@ -331,6 +359,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_10.jpg',
       width: 1358,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_10.jpg',
     },
   },
   {
@@ -342,6 +371,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_11.jpg',
       width: 2048,
       height: 1358,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_11.jpg',
     },
   },
   {
@@ -353,6 +383,7 @@ const allPhotosUnsorted: photoType[] = [
       url: '/assets/photos/lp_12.jpg',
       width: 1358,
       height: 2048,
+      thumbnailSrc: '/assets/photos/thumbnails/lp_12.jpg',
     },
   },
 ];

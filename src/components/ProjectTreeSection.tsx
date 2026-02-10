@@ -105,7 +105,7 @@ const projectData: Record<projectId, { content: React.ReactNode }> = {
               or a blend of both.
             </p>
           </div>
-          <span>
+          <span className="min-h-[300px]">
             <img
               src="/assets/vince_filmen-6.jpg"
               alt="Portrait of Vince Agocs"
@@ -361,9 +361,7 @@ export default function ProjectTreeSection() {
       params.set('project', activeProjectId);
     }
     const queryString = params.toString();
-    const newUrl = queryString
-      ? `${pathname}?${queryString}`
-      : pathname;
+    const newUrl = queryString ? `${pathname}?${queryString}` : pathname;
 
     router.replace(newUrl, { scroll: false });
 
@@ -377,6 +375,17 @@ export default function ProjectTreeSection() {
     if (id.startsWith('uuid-')) {
       // Just update the state - the second useEffect will handle URL update
       setActiveProjectId(id as projectId);
+      // On mobile, scroll down to the project tree section so the selected content is visible
+      if (
+        typeof window !== 'undefined' &&
+        window.matchMedia('(max-width: 767px)').matches
+      ) {
+        requestAnimationFrame(() => {
+          document.getElementById('project-content')?.scrollIntoView({
+            behavior: 'smooth',
+          });
+        });
+      }
     }
   };
 

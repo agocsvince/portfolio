@@ -32,7 +32,11 @@ export type linkType = {
   id: string;
 };
 export interface photoType {
-  asset: assetType & { width: number; height: number };
+  asset: assetType & {
+    width: number;
+    height: number;
+    thumbnailSrc?: string;
+  };
   alt: string;
   title: string;
   id: string;
