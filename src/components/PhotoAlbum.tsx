@@ -41,7 +41,9 @@ const PhotoAlbum = ({
                       }}
                     >
                       <img
-                        src={photo.asset.url}
+                        src={
+                          photo.asset.thumbnailSrc ?? photo.asset.url
+                        }
                         alt={photo.alt || 'Photo'}
                         className="w-full h-full object-contain"
                       />
@@ -65,7 +67,9 @@ const PhotoAlbum = ({
                         }}
                       >
                         <img
-                          src={photo.asset.url}
+                          src={
+                            photo.asset.thumbnailSrc ?? photo.asset.url
+                          }
                           alt={photo.alt || 'Photo'}
                           className="w-full h-full object-contain"
                         />
