@@ -586,6 +586,7 @@ export const keresztPhotos: photoType[] = [
       url: '/assets/photos/kereszt_1.jpg',
       width: 1620,
       height: 1080,
+      thumbnailSrc: '/assets/photos/thumbnails/kereszt_1.jpg',
     },
   },
   {
@@ -597,6 +598,7 @@ export const keresztPhotos: photoType[] = [
       url: '/assets/photos/kereszt_2.jpg',
       width: 1080,
       height: 1620,
+      thumbnailSrc: '/assets/photos/thumbnails/kereszt_2.jpg',
     },
   },
   {
@@ -608,6 +610,7 @@ export const keresztPhotos: photoType[] = [
       url: '/assets/photos/kereszt_3.jpg',
       width: 1080,
       height: 1620,
+      thumbnailSrc: '/assets/photos/thumbnails/kereszt_3.jpg',
     },
   },
   {
@@ -619,6 +622,7 @@ export const keresztPhotos: photoType[] = [
       url: '/assets/photos/kereszt_4.jpg',
       width: 1620,
       height: 1080,
+      thumbnailSrc: '/assets/photos/thumbnails/kereszt_4.jpg',
     },
   },
 ];
