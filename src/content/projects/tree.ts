@@ -24,6 +24,15 @@ export const defaultData: ProjectTreeData = {
             { title: 'csalad.mov', id: 'uuid-234' },
           ],
         },
+        {
+          title: 'kain_KERESZT_DOKUMENTUMOK',
+          id: 'uuid-24',
+          children: [
+            // { title: 'kereszt_dokumentumok_1.mov', id: 'uuid-241' },
+            // { title: 'kereszt_dokumentumok_2.mov', id: 'uuid-242' },
+            { title: 'kereszt_dokumentumok_3.mov', id: 'uuid-243' },
+          ],
+        },
         { title: 'susa_2elore_1hatra.mp4', id: 'uuid-27' },
       ],
     },
