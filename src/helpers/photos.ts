@@ -575,3 +575,50 @@ export const portfolioWebsitePhotos: photoType[] = [
     },
   },
 ];
+
+export const keresztPhotos: photoType[] = [
+  {
+    id: 'photo-kereszt-1',
+    alt: 'Kereszt 1',
+    title: 'Kereszt 1',
+    asset: {
+      fileName: 'kereszt_1.jpg',
+      url: '/assets/photos/kereszt_1.jpg',
+      width: 1620,
+      height: 1080,
+    },
+  },
+  {
+    id: 'photo-kereszt-2',
+    alt: 'Kereszt 2',
+    title: 'Kereszt 2',
+    asset: {
+      fileName: 'kereszt_2.jpg',
+      url: '/assets/photos/kereszt_2.jpg',
+      width: 1080,
+      height: 1620,
+    },
+  },
+  {
+    id: 'photo-kereszt-3',
+    alt: 'Kereszt 3',
+    title: 'Kereszt 3',
+    asset: {
+      fileName: 'kereszt_3.jpg',
+      url: '/assets/photos/kereszt_3.jpg',
+      width: 1080,
+      height: 1620,
+    },
+  },
+  {
+    id: 'photo-kereszt-4',
+    alt: 'Kereszt 4',
+    title: 'Kereszt 4',
+    asset: {
+      fileName: 'kereszt_4.jpg',
+      url: '/assets/photos/kereszt_4.jpg',
+      width: 1620,
+      height: 1080,
+    },
+  },
+];
