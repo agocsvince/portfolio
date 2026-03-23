@@ -8,6 +8,7 @@ import * as uuid231 from './uuid-231';
 import * as uuid232 from './uuid-232';
 import * as uuid233 from './uuid-233';
 import * as uuid234 from './uuid-234';
+import * as uuid242 from './uuid-242';
 import * as uuid243 from './uuid-243';
 import * as uuid31 from './uuid-31';
 import * as uuid41 from './uuid-41';
@@ -17,6 +18,7 @@ import * as uuid46 from './uuid-46';
 import * as uuid48 from './uuid-48';
 import * as uuid49 from './uuid-49';
 import * as uuid51 from './uuid-51';
+import * as uuid241 from './uuid-241';
 
 export const projectData: Record<ProjectId, ProjectEntry> = {
   [uuid1.id]: { content: uuid1.content },
@@ -35,6 +37,8 @@ export const projectData: Record<ProjectId, ProjectEntry> = {
   [uuid48.id]: { content: uuid48.content },
   [uuid49.id]: { content: uuid49.content },
   [uuid51.id]: { content: uuid51.content },
+  [uuid241.id]: { content: uuid241.content },
+  [uuid242.id]: { content: uuid242.content },
   [uuid243.id]: { content: uuid243.content },
 };
 
