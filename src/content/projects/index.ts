@@ -17,6 +17,7 @@ import * as uuid46 from './uuid-46';
 import * as uuid48 from './uuid-48';
 import * as uuid49 from './uuid-49';
 import * as uuid51 from './uuid-51';
+import * as uuid241 from './uuid-241';
 
 export const projectData: Record<ProjectId, ProjectEntry> = {
   [uuid1.id]: { content: uuid1.content },
@@ -35,6 +36,7 @@ export const projectData: Record<ProjectId, ProjectEntry> = {
   [uuid48.id]: { content: uuid48.content },
   [uuid49.id]: { content: uuid49.content },
   [uuid51.id]: { content: uuid51.content },
+  [uuid241.id]: { content: uuid241.content },
   [uuid243.id]: { content: uuid243.content },
 };
 
