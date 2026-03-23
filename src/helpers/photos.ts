@@ -639,6 +639,68 @@ export const keresztPhotos: Record<number, photoType[]> = {
       },
     },
   ],
+  [2]: [
+    {
+      id: 'photo-kereszt-2-1',
+      alt: 'Kereszt 2 - 1',
+      title: 'Kereszt 2 - 1',
+      asset: {
+        fileName: 'img014.jpg',
+        url: '/assets/photos/kereszt/2/img014.jpg',
+        width: 2818,
+        height: 4128,
+        thumbnailSrc: '/assets/photos/thumbnails/kereszt/2/img014.jpg',
+      },
+    },
+    {
+      id: 'photo-kereszt-2-2',
+      alt: 'Kereszt 2 - 2',
+      title: 'Kereszt 2 - 2',
+      asset: {
+        fileName: 'img015.jpg',
+        url: '/assets/photos/kereszt/2/img015.jpg',
+        width: 4239,
+        height: 2823,
+        thumbnailSrc: '/assets/photos/thumbnails/kereszt/2/img015.jpg',
+      },
+    },
+    {
+      id: 'photo-kereszt-2-3',
+      alt: 'Kereszt 2 - 3',
+      title: 'Kereszt 2 - 3',
+      asset: {
+        fileName: 'img016.jpg',
+        url: '/assets/photos/kereszt/2/img016.jpg',
+        width: 2818,
+        height: 4253,
+        thumbnailSrc: '/assets/photos/thumbnails/kereszt/2/img016.jpg',
+      },
+    },
+    {
+      id: 'photo-kereszt-2-4',
+      alt: 'Kereszt 2 - 4',
+      title: 'Kereszt 2 - 4',
+      asset: {
+        fileName: 'img017.jpg',
+        url: '/assets/photos/kereszt/2/img017.jpg',
+        width: 2824,
+        height: 4234,
+        thumbnailSrc: '/assets/photos/thumbnails/kereszt/2/img017.jpg',
+      },
+    },
+    {
+      id: 'photo-kereszt-2-5',
+      alt: 'Kereszt 2 - 5',
+      title: 'Kereszt 2 - 5',
+      asset: {
+        fileName: 'merch-2.jpg',
+        url: '/assets/photos/kereszt/2/merch-2.jpg',
+        width: 2869,
+        height: 2160,
+        thumbnailSrc: '/assets/photos/thumbnails/kereszt/2/merch-2.jpg',
+      },
+    },
+  ],
   [3]: [
     {
       id: 'photo-kereszt-1',

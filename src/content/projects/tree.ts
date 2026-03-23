@@ -29,7 +29,7 @@ export const defaultData: ProjectTreeData = {
           id: 'uuid-24',
           children: [
             { title: 'kereszt_dokumentumok_1.mov', id: 'uuid-241' },
-            // { title: 'kereszt_dokumentumok_2.mov', id: 'uuid-242' },
+            { title: 'kereszt_dokumentumok_2.mov', id: 'uuid-242' },
             { title: 'kereszt_dokumentumok_3.mov', id: 'uuid-243' },
           ],
         },
