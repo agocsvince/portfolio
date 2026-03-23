@@ -1,0 +1,23 @@
+---
+description: Keep project UUID entries fully wired across content registry and tree
+alwaysApply: true
+---
+
+# Project UUID Registration Checklist
+
+When adding or renaming any project content id (for example `uuid-241`) or creating a new `src/content/projects/uuid-<number>.tsx` file, always keep all project wiring in sync.
+
+- Create/update the project file at `src/content/projects/uuid-<number>.tsx` and export:
+  - `id` as a `ProjectId`
+  - `content`
+- Update `src/content/projects/index.ts`:
+  - Add the import for the new uuid module.
+  - Add the `[uuidX.id]: { content: uuidX.content }` entry in `projectData`.
+- Update `src/content/projects/tree.ts`:
+  - Add/update the corresponding node under the correct branch in `defaultData`.
+  - Ensure displayed title and `id` match the project file.
+- Update `src/content/projects/types.ts` if the `ProjectId` union is explicit and requires the new id.
+- Verify there are no dangling ids:
+  - Every clickable id in `tree.ts` must exist in `projectData`.
+  - Every `projectData` uuid entry must map to an existing `uuid-*.tsx` module.
+- After edits, run lint checks for touched files and fix any introduced issues.
