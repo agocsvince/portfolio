@@ -7,17 +7,28 @@ alwaysApply: true
 
 When adding or renaming any project content id (for example `uuid-241`) or creating a new `src/content/projects/uuid-<number>.tsx` file, always keep all project wiring in sync.
 
-- Create/update the project file at `src/content/projects/uuid-<number>.tsx` and export:
-  - `id` as a `ProjectId`
-  - `content`
-- Update `src/content/projects/index.ts`:
-  - Add the import for the new uuid module.
-  - Add the `[uuidX.id]: { content: uuidX.content }` entry in `projectData`.
-- Update `src/content/projects/tree.ts`:
-  - Add/update the corresponding node under the correct branch in `defaultData`.
-  - Ensure displayed title and `id` match the project file.
-- Update `src/content/projects/types.ts` if the `ProjectId` union is explicit and requires the new id.
-- Verify there are no dangling ids:
-  - Every clickable id in `tree.ts` must exist in `projectData`.
-  - Every `projectData` uuid entry must map to an existing `uuid-*.tsx` module.
-- After edits, run lint checks for touched files and fix any introduced issues.
+## Required Execution Order (do not skip)
+
+1. Create/update `src/content/projects/uuid-<number>.tsx` and export:
+   - `id` as a `ProjectId`
+   - `content`
+2. Update `src/content/projects/index.ts`:
+   - Add the uuid module import.
+   - Add `[uuidX.id]: { content: uuidX.content }` in `projectData`.
+3. Update `src/content/projects/tree.ts`:
+   - Add/update the matching node in `defaultData`.
+   - Ensure title and `id` point to the same project.
+4. Update `src/content/projects/types.ts` if `ProjectId` is an explicit union.
+5. Run lint checks on touched files and fix newly introduced issues.
+
+## Mandatory Validation Before Finishing
+
+- `tree.ts` ids -> all ids exist in `projectData`.
+- `projectData` ids -> all ids map to existing `uuid-*.tsx` modules.
+- Added/renamed uuid file export id matches the tree/index registration id exactly.
+- No commented-out or orphaned uuid references are left behind unless intentionally requested.
+
+## Failure Prevention Notes
+
+- Never ship a new uuid content file without index and tree registration in the same change.
+- If a project is intentionally hidden from tree, explicitly note it and keep `projectData` behavior intentional.
