@@ -17,7 +17,7 @@ export const content = (
       videoSrc="/assets/videos/kereszt/kereszt_1_preview.mp4"
     />
     <p>
-      Some of my early shots on that old film camera (Mamiya 1235EF; Fomapan
+      Some of my early shots on that old film camera (Mamiya 135EF; Fomapan
       400/Kodak gold 200)
     </p>
     <div className="bg-light-primary p-4 text-dark-primary">
