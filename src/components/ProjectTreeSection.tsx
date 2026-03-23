@@ -3,11 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import ProjectTree from '@/components/ProjectTree';
-import {
-  projectData,
-  defaultData,
-  type ProjectId,
-} from '@/content/projects';
+import { projectData, defaultData, type ProjectId } from '@/content/projects';
 
 export default function ProjectTreeSection() {
   const searchParams = useSearchParams();
@@ -28,6 +24,33 @@ export default function ProjectTreeSection() {
   });
 
   const [copied, setCopied] = useState(false);
+
+  const smoothScrollToElement = (element: HTMLElement, duration = 950) => {
+    const startY = window.scrollY;
+    const targetY = element.getBoundingClientRect().top + window.scrollY;
+    const distance = targetY - startY;
+    const startTime = performance.now();
+
+    // Faster start with smooth finish.
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutCubic(progress);
+
+      window.scrollTo({
+        top: startY + distance * easedProgress,
+        behavior: 'auto',
+      });
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
 
   const handleCopy = async () => {
     try {
@@ -93,9 +116,15 @@ export default function ProjectTreeSection() {
         window.matchMedia('(max-width: 767px)').matches
       ) {
         requestAnimationFrame(() => {
-          document.getElementById('project-content')?.scrollIntoView({
-            behavior: 'smooth',
-          });
+          const projectContent = document.getElementById('project-content');
+          if (!projectContent) return;
+
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            projectContent.scrollIntoView({ behavior: 'auto' });
+            return;
+          }
+
+          smoothScrollToElement(projectContent);
         });
       }
     }
