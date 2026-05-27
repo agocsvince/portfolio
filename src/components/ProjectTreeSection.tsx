@@ -131,7 +131,7 @@ export default function ProjectTreeSection() {
   };
 
   return (
-    <div className="grid md:grid-cols-[1fr_3fr] grid-cols-1 gap-4 mx-4 lg:mx-14">
+    <div className="grid md:grid-cols-[1fr_3fr] grid-cols-1 gap-4 my-4 mx-4 lg:mx-14">
       <ProjectTree
         activeProjectId={activeProjectId}
         onProjectClick={handleProjectClick}
