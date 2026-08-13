@@ -43,12 +43,18 @@ const PhotoAlbum = ({
   };
 
   const normalizedColumns = Math.max(1, Math.floor(columns));
+  const hasOddFullWidthItem =
+    normalizedColumns > 1 && photos.length % 2 === 1;
+  const fullWidthPhoto = hasOddFullWidthItem ? photos[0] : null;
+  const gridPhotos = hasOddFullWidthItem ? photos.slice(1) : photos;
+
   const columnsData: { photo: photoType; originalIndex: number }[][] =
     Array.from({ length: normalizedColumns }, () => []);
   const columnHeights = Array.from({ length: normalizedColumns }, () => 0);
 
   // Balance columns by estimated rendered height so total column height stays close.
-  photos.forEach((photo, originalIndex) => {
+  gridPhotos.forEach((photo, gridIndex) => {
+    const originalIndex = hasOddFullWidthItem ? gridIndex + 1 : gridIndex;
     const aspectRatio = photo.asset.width / photo.asset.height;
     const estimatedHeight = aspectRatio > 0 ? 1 / aspectRatio : 1;
 
@@ -66,6 +72,11 @@ const PhotoAlbum = ({
   return (
     <div className="gap-4 justify-center bg-light-primary">
       <PhotoProvider toolbarRender={showPhotoTitle}>
+        {fullWidthPhoto && (
+          <div className="mb-4">
+            <PhotoAlbumItem photo={fullWidthPhoto} />
+          </div>
+        )}
         <div className={`grid grid-cols-${normalizedColumns} gap-4`}>
           {columnsData.map((columnPhotos, columnIndex) => (
             <div key={`column-${columnIndex}`} className="flex flex-col gap-4">

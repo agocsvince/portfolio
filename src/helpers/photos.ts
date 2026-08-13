@@ -752,3 +752,117 @@ export const keresztPhotos: Record<number, photoType[]> = {
     },
   ],
 };
+
+export const tomatoGardenPhotos: photoType[] = [
+  {
+    id: 'photo-tomato-garden-000022400011-jpg',
+    alt: '000022400011',
+    title: '000022400011',
+    asset: {
+      fileName: '000022400011.jpg',
+      url: '/assets/photos/tomato-garden/000022400011.jpg',
+      width: 6774,
+      height: 4492,
+      thumbnailSrc: '/assets/photos/thumbnails/tomato-garden/000022400011.jpg',
+    },
+  },
+  {
+    id: 'photo-tomato-garden-000022400013-jpg',
+    alt: '000022400013',
+    title: '000022400013',
+    asset: {
+      fileName: '000022400013.jpg',
+      url: '/assets/photos/tomato-garden/000022400013.jpg',
+      width: 6774,
+      height: 4492,
+      thumbnailSrc: '/assets/photos/thumbnails/tomato-garden/000022400013.jpg',
+    },
+  },
+  {
+    id: 'photo-tomato-garden-000022400010-jpg',
+    alt: '000022400010',
+    title: '000022400010',
+    asset: {
+      fileName: '000022400010.jpg',
+      url: '/assets/photos/tomato-garden/000022400010.jpg',
+      width: 6774,
+      height: 4492,
+      thumbnailSrc: '/assets/photos/thumbnails/tomato-garden/000022400010.jpg',
+    },
+  },
+  {
+    id: 'photo-tomato-garden-000022400012-jpg',
+    alt: '000022400012',
+    title: '000022400012',
+    asset: {
+      fileName: '000022400012.jpg',
+      url: '/assets/photos/tomato-garden/000022400012.jpg',
+      width: 6774,
+      height: 4492,
+      thumbnailSrc: '/assets/photos/thumbnails/tomato-garden/000022400012.jpg',
+    },
+  },
+];
+
+export const chinatownPhotos: photoType[] = [
+  {
+    id: 'photo-chinatown-000022400001-jpg',
+    alt: '000022400001',
+    title: '000022400001',
+    asset: {
+      fileName: '000022400001.jpg',
+      url: '/assets/photos/chinatown/000022400001.jpg',
+      width: 6595,
+      height: 4373,
+      thumbnailSrc: '/assets/photos/thumbnails/chinatown/000022400001.jpg',
+    },
+  },
+  {
+    id: 'photo-chinatown-000022400006-jpg',
+    alt: '000022400006',
+    title: '000022400006',
+    asset: {
+      fileName: '000022400006.jpg',
+      url: '/assets/photos/chinatown/000022400006.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/chinatown/000022400006.jpg',
+    },
+  },
+  {
+    id: 'photo-chinatown-000022400003-jpg',
+    alt: '000022400003',
+    title: '000022400003',
+    asset: {
+      fileName: '000022400003.jpg',
+      url: '/assets/photos/chinatown/000022400003.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/chinatown/000022400003.jpg',
+    },
+  },
+  {
+    id: 'photo-chinatown-000022400002-jpg',
+    alt: '000022400002',
+    title: '000022400002',
+    asset: {
+      fileName: '000022400002.jpg',
+      url: '/assets/photos/chinatown/000022400002.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/chinatown/000022400002.jpg',
+    },
+  },
+  {
+    id: 'photo-chinatown-000022400007-jpg',
+    alt: '000022400007',
+    title: '000022400007',
+    asset: {
+      fileName: '000022400007.jpg',
+      url: '/assets/photos/chinatown/000022400007.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/chinatown/000022400007.jpg',
+    },
+  },
+];

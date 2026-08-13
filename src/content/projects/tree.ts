@@ -55,7 +55,14 @@ export const defaultData: ProjectTreeData = {
     {
       title: 'photo',
       id: 'uuid-3',
-      children: [{ title: 'all.jpg', id: 'uuid-31' }],
+      children: [
+        { title: 'all.jpg', id: 'uuid-31' },
+        {
+          title: 'the-last-harvest-of-light',
+          id: 'uuid-32',
+        },
+        { title: 'the-chinese-quarter-district-viii', id: 'uuid-33' },
+      ],
     },
     {
       title: 'website',
