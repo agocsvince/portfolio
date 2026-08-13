@@ -58,10 +58,10 @@ export const defaultData: ProjectTreeData = {
       children: [
         { title: 'all.jpg', id: 'uuid-31' },
         {
-          title: 'the-last-harvest-of-light.webp',
+          title: 'tomato-harvest.webp',
           id: 'uuid-32',
         },
-        { title: 'the-chinese-quarter-district-viii.webp', id: 'uuid-33' },
+        { title: 'chinatown.webp', id: 'uuid-33' },
       ],
     },
     {
