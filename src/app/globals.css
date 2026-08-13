@@ -124,6 +124,13 @@ html {
       transform: rotate(0);
     }
   }
+
+  --animate-border-shine: border-shine 2.8s linear infinite;
+  @keyframes border-shine {
+    to {
+      --shine-angle: 360deg;
+    }
+  }
 }
 
 html {
@@ -226,6 +233,43 @@ body {
   .max-h-dvh {
     max-height: 100vh;
     max-height: 100dvh;
+  }
+
+  @property --shine-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .shine {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .shine::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--shine-angle),
+      transparent 0deg 300deg,
+      color-mix(in oklch, var(--alternative) 35%, transparent) 320deg,
+      var(--alternative) 340deg,
+      color-mix(in oklch, var(--alternative) 35%, transparent) 350deg,
+      transparent 360deg
+    );
+    animation: var(--animate-border-shine);
+    pointer-events: none;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
   }
 }
 
