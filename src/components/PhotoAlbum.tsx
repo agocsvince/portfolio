@@ -1,30 +1,81 @@
 import { photoType } from '@/helpers/types';
-import { memo } from 'react';
+import { memo, useMemo, useState } from 'react';
 
 import 'react-photo-view/dist/react-photo-view.css';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { PhotoSlider } from 'react-photo-view';
 
-const PhotoAlbumItem = ({ photo }: { photo: photoType }) => {
+const PhotoAlbumItem = ({
+  photo,
+  onOpen,
+}: {
+  photo: photoType;
+  onOpen: () => void;
+}) => {
   const aspectRatio = photo.asset.width / photo.asset.height;
 
   return (
-    <div className="flex flex-col gap-4">
-      <PhotoView src={photo.asset.url}>
-        <div
-          className="w-full overflow-hidden"
-          style={{
-            aspectRatio: aspectRatio,
-          }}
-        >
-          <img
-            src={photo.asset.thumbnailSrc ?? photo.asset.url}
-            alt={photo.alt || 'Photo'}
-            className="w-full h-full object-contain"
-          />
-        </div>
-      </PhotoView>
-    </div>
+    <button
+      type="button"
+      className="flex w-full cursor-pointer flex-col gap-4 border-0 bg-transparent p-0 text-left"
+      onClick={onOpen}
+    >
+      <div
+        className="w-full overflow-hidden"
+        style={{
+          aspectRatio: aspectRatio,
+        }}
+      >
+        <img
+          src={photo.asset.thumbnailSrc ?? photo.asset.url}
+          alt={photo.alt || 'Photo'}
+          className="h-full w-full object-contain"
+        />
+      </div>
+    </button>
   );
+};
+
+type GridPhoto = { photo: photoType; originalIndex: number };
+
+type LayoutSegment =
+  | { type: 'fullWidth'; photo: photoType; originalIndex: number }
+  | { type: 'grid'; photos: GridPhoto[] };
+
+const distributeIntoColumns = (
+  photos: GridPhoto[],
+  columnCount: number,
+): GridPhoto[][] => {
+  const columnsData: GridPhoto[][] = Array.from({ length: columnCount }, () => []);
+
+  photos.forEach((gridPhoto, index) => {
+    columnsData[index % columnCount].push(gridPhoto);
+  });
+
+  return columnsData;
+};
+
+const buildLayoutSegments = (photos: photoType[]): LayoutSegment[] => {
+  const segments: LayoutSegment[] = [];
+  let currentGridBatch: GridPhoto[] = [];
+
+  photos.forEach((photo, index) => {
+    if (photo.isFullWidth) {
+      if (currentGridBatch.length > 0) {
+        segments.push({ type: 'grid', photos: currentGridBatch });
+        currentGridBatch = [];
+      }
+      segments.push({ type: 'fullWidth', photo, originalIndex: index });
+      return;
+    }
+
+    currentGridBatch.push({ photo, originalIndex: index });
+  });
+
+  if (currentGridBatch.length > 0) {
+    segments.push({ type: 'grid', photos: currentGridBatch });
+  }
+
+  return segments;
 };
 
 const PhotoAlbum = ({
@@ -34,6 +85,23 @@ const PhotoAlbum = ({
   photos: photoType[];
   columns?: number;
 }) => {
+  const [visible, setVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const images = useMemo(
+    () =>
+      photos.map((photo) => ({
+        key: photo.id,
+        src: photo.asset.url,
+      })),
+    [photos],
+  );
+
+  const openPhoto = (index: number) => {
+    setActiveIndex(index);
+    setVisible(true);
+  };
+
   const showPhotoTitle = ({ index }: { index: number }) => {
     return (
       <span className="PhotoView-Slider__toolbarIcon">
@@ -43,51 +111,63 @@ const PhotoAlbum = ({
   };
 
   const normalizedColumns = Math.max(1, Math.floor(columns));
-  const hasOddFullWidthItem =
-    normalizedColumns > 1 && photos.length % 2 === 1;
-  const fullWidthPhoto = hasOddFullWidthItem ? photos[0] : null;
-  const gridPhotos = hasOddFullWidthItem ? photos.slice(1) : photos;
-
-  const columnsData: { photo: photoType; originalIndex: number }[][] =
-    Array.from({ length: normalizedColumns }, () => []);
-  const columnHeights = Array.from({ length: normalizedColumns }, () => 0);
-
-  // Balance columns by estimated rendered height so total column height stays close.
-  gridPhotos.forEach((photo, gridIndex) => {
-    const originalIndex = hasOddFullWidthItem ? gridIndex + 1 : gridIndex;
-    const aspectRatio = photo.asset.width / photo.asset.height;
-    const estimatedHeight = aspectRatio > 0 ? 1 / aspectRatio : 1;
-
-    let targetColumn = 0;
-    for (let i = 1; i < columnHeights.length; i += 1) {
-      if (columnHeights[i] < columnHeights[targetColumn]) {
-        targetColumn = i;
-      }
-    }
-
-    columnsData[targetColumn].push({ photo, originalIndex });
-    columnHeights[targetColumn] += estimatedHeight;
-  });
+  const layoutSegments = buildLayoutSegments(photos);
 
   return (
-    <div className="gap-4 justify-center bg-light-primary">
-      <PhotoProvider toolbarRender={showPhotoTitle}>
-        {fullWidthPhoto && (
-          <div className="mb-4">
-            <PhotoAlbumItem photo={fullWidthPhoto} />
-          </div>
-        )}
-        <div className={`grid grid-cols-${normalizedColumns} gap-4`}>
-          {columnsData.map((columnPhotos, columnIndex) => (
-            <div key={`column-${columnIndex}`} className="flex flex-col gap-4">
-              {columnPhotos.map(({ photo, originalIndex }) => (
-                <PhotoAlbumItem key={`${photo.id}-${originalIndex}`} photo={photo} />
+    <>
+      <div className="flex flex-col gap-4 justify-center bg-light-primary">
+        {layoutSegments.map((segment, segmentIndex) => {
+          if (segment.type === 'fullWidth') {
+            return (
+              <PhotoAlbumItem
+                key={`${segment.photo.id}-${segment.originalIndex}`}
+                photo={segment.photo}
+                onOpen={() => openPhoto(segment.originalIndex)}
+              />
+            );
+          }
+
+          const columnsData = distributeIntoColumns(
+            segment.photos,
+            normalizedColumns,
+          );
+
+          return (
+            <div
+              key={`grid-${segmentIndex}`}
+              className="grid gap-4"
+              style={{
+                gridTemplateColumns: `repeat(${normalizedColumns}, minmax(0, 1fr))`,
+              }}
+            >
+              {columnsData.map((columnPhotos, columnIndex) => (
+                <div
+                  key={`column-${segmentIndex}-${columnIndex}`}
+                  className="flex flex-col gap-4"
+                >
+                  {columnPhotos.map(({ photo, originalIndex }) => (
+                    <PhotoAlbumItem
+                      key={`${photo.id}-${originalIndex}`}
+                      photo={photo}
+                      onOpen={() => openPhoto(originalIndex)}
+                    />
+                  ))}
+                </div>
               ))}
             </div>
-          ))}
-        </div>
-      </PhotoProvider>
-    </div>
+          );
+        })}
+      </div>
+
+      <PhotoSlider
+        images={images}
+        visible={visible}
+        index={activeIndex}
+        onIndexChange={setActiveIndex}
+        onClose={() => setVisible(false)}
+        toolbarRender={showPhotoTitle}
+      />
+    </>
   );
 };
 

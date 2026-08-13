@@ -770,6 +770,7 @@ export const tomatoGardenPhotos: photoType[] = [
     id: 'photo-tomato-garden-000022400013-jpg',
     alt: '000022400013',
     title: '000022400013',
+    isFullWidth: true,
     asset: {
       fileName: '000022400013.jpg',
       url: '/assets/photos/tomato-garden/000022400013.jpg',
@@ -863,6 +864,106 @@ export const chinatownPhotos: photoType[] = [
       width: 4492,
       height: 6774,
       thumbnailSrc: '/assets/photos/thumbnails/chinatown/000022400007.jpg',
+    },
+  },
+];
+
+export const szalaiPlazsPhotos: photoType[] = [
+  {
+    id: 'photo-szalai-plazs-000022410022-jpg',
+    alt: '000022410022',
+    title: '000022410022',
+    asset: {
+      fileName: '000022410022.jpg',
+      url: '/assets/photos/szalai-plazs/000022410022.jpg',
+      width: 6703,
+      height: 4445,
+      thumbnailSrc: '/assets/photos/thumbnails/szalai-plazs/000022410022.jpg',
+    },
+  },
+  {
+    id: 'photo-szalai-plazs-000022410030-jpg',
+    alt: '000022410030',
+    title: '000022410030',
+    isFullWidth: true,
+    asset: {
+      fileName: '000022410030.jpg',
+      url: '/assets/photos/szalai-plazs/000022410030.jpg',
+      width: 6774,
+      height: 4492,
+      thumbnailSrc: '/assets/photos/thumbnails/szalai-plazs/000022410030.jpg',
+    },
+  },
+  {
+    id: 'photo-szalai-plazs-000022410018-jpg',
+    alt: '000022410018',
+    title: '000022410018',
+    asset: {
+      fileName: '000022410018.jpg',
+      url: '/assets/photos/szalai-plazs/000022410018.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/szalai-plazs/000022410018.jpg',
+    },
+  },
+  {
+    id: 'photo-szalai-plazs-000022410026-jpg',
+    alt: '000022410026',
+    title: '000022410026',
+    asset: {
+      fileName: '000022410026.jpg',
+      url: '/assets/photos/szalai-plazs/000022410026.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/szalai-plazs/000022410026.jpg',
+    },
+  },
+  {
+    id: 'photo-szalai-plazs-000022410027-jpg',
+    alt: '000022410027',
+    title: '000022410027',
+    asset: {
+      fileName: '000022410027.jpg',
+      url: '/assets/photos/szalai-plazs/000022410027.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/szalai-plazs/000022410027.jpg',
+    },
+  },
+  {
+    id: 'photo-szalai-plazs-000022410028-jpg',
+    alt: '000022410028',
+    title: '000022410028',
+    asset: {
+      fileName: '000022410028.jpg',
+      url: '/assets/photos/szalai-plazs/000022410028.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/szalai-plazs/000022410028.jpg',
+    },
+  },
+  {
+    id: 'photo-szalai-plazs-000022410016-jpg',
+    alt: '000022410016',
+    title: '000022410016',
+    asset: {
+      fileName: '000022410016.jpg',
+      url: '/assets/photos/szalai-plazs/000022410016.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/szalai-plazs/000022410016.jpg',
+    },
+  },
+  {
+    id: 'photo-szalai-plazs-000022410029-jpg',
+    alt: '000022410029',
+    title: '000022410029',
+    asset: {
+      fileName: '000022410029.jpg',
+      url: '/assets/photos/szalai-plazs/000022410029.jpg',
+      width: 4492,
+      height: 6774,
+      thumbnailSrc: '/assets/photos/thumbnails/szalai-plazs/000022410029.jpg',
     },
   },
 ];

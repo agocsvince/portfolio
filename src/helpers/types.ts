@@ -40,6 +40,7 @@ export interface photoType {
   alt: string;
   title: string;
   id: string;
+  isFullWidth?: boolean;
 }
 
 export interface videoType {

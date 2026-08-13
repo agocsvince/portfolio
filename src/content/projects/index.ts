@@ -12,6 +12,7 @@ import * as uuid243 from './kain/uuid-243';
 import * as uuid31 from './uuid-31';
 import * as uuid32 from './tomato-garden/uuid-32';
 import * as uuid33 from './chinatown/uuid-33';
+import * as uuid34 from './szalai/uuid-34';
 import * as uuid41 from './uuid-41';
 import * as uuid43 from './uuid-43';
 import * as uuid45 from './uuid-45';
@@ -37,6 +38,7 @@ export const projectData: Record<ProjectId, ProjectEntry> = {
   [uuid31.id]: { content: uuid31.content },
   [uuid32.id]: { content: uuid32.content },
   [uuid33.id]: { content: uuid33.content },
+  [uuid34.id]: { content: uuid34.content },
   [uuid41.id]: { content: uuid41.content },
   [uuid43.id]: { content: uuid43.content },
   [uuid45.id]: { content: uuid45.content },

@@ -62,6 +62,7 @@ export const defaultData: ProjectTreeData = {
           id: 'uuid-32',
         },
         { title: 'chinatown.webp', id: 'uuid-33' },
+        { title: 'szalai_plazs.jpg', id: 'uuid-34' },
       ],
     },
     {
